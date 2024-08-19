@@ -21,15 +21,12 @@ async def handle(interaction: discord.Interaction) -> None:
             ...
 
     if custom_id.startswith("inventory"):
-        if interaction.user.id != original_user_id:
-            return
-
-        index = custom_id.lstrip("inventory")[:-4]
+        _, index, action = custom_id.split("%")
         index = int(index) - 1
-        if custom_id[-4:] == "next":
+        if action == "next":
             index += 2
 
-        await inventory.show_inventory_slot(interaction, index, edit=True)
+        await inventory.show_inventory(interaction, page = index, edit = True)
     elif custom_id.startswith("binder"):
         _, name, index, action = custom_id.split("%")
         index = int(index) - 1

@@ -10,7 +10,10 @@ import card_manager
 from functools import reduce
 from discord.ui import View, Button
 from discord import ButtonStyle
+import math
 
+
+CARDS_PER_PAGE = 8
 
 def hash_card(card: c_card.Card) -> int:
     return reduce(lambda a, b: a << 5 | (ord(b) - ord("a")), card.card_id.lower(), 0)
@@ -27,22 +30,20 @@ rank_order = {
 
 @tree.command(name="inventory", description="view your cards", guild=discord.Object(id = settings.guild_id))
 async def inventory(interaction: discord.Interaction): # old method: ', card: str | None = None):'
+    await show_inventory(interaction)
+
+
+async def show_inventory(interaction: discord.Interaction, page: int = 1, edit: bool = False):
+    page -= 1
+    if page < 0:
+        return
+    user_id = interaction.user.id
     user_data = await db.get_user(
-        interaction.user.id,
+        user_id,
         include = {
             "cards": True
         }
     )
-    # old method
-    # if card is not None:
-    #     card = card_manager.find_card(user_data, card.upper())
-#
-    #     if card is None:
-    #         await interaction.response.send_message("You don't have this card")
-    #         return
-#
-    #     await show_card(interaction, card)
-    #     return
 
     embed = discord.Embed(
         title = "Inventory",
@@ -52,7 +53,8 @@ async def inventory(interaction: discord.Interaction): # old method: ', card: st
     user_data.cards.sort(
         key = (lambda x: rank_order[x.card_id[0].upper()])
     )
-    for card in user_data.cards:
+
+    for card in user_data.cards[page * CARDS_PER_PAGE: min(len(user_data.cards), (page + 1) * CARDS_PER_PAGE)]:
         tier = card.card_id[0].upper()
         info = card_info.card_info[card.card_id.upper()]
         name, group, era = info.name, info.group, info.era
@@ -63,9 +65,38 @@ async def inventory(interaction: discord.Interaction): # old method: ', card: st
             inline = False
         )
 
+    view = View(timeout=60)
+    view.add_item(
+        Button(
+            style = ButtonStyle.primary,
+            label = "<",
+            custom_id = f"[{user_id}]inventory%{page + 1}%back",
+            disabled = (page == 0)
+        )
+    )
 
-    await interaction.response.send_message(embed = embed)
+    view.add_item(
+        Button(
+            style = ButtonStyle.primary,
+            label = f"{page + 1} / {math.ceil(len(user_data.cards) / CARDS_PER_PAGE)}",
+            disabled = True
+        )
+    )
 
+    view.add_item(
+        Button(
+            style = ButtonStyle.primary,
+            label = ">",
+            custom_id = f"[{user_id}]inventory%{page + 1}%next",
+            disabled = (page + 1 == math.ceil((len(user_data.cards) / CARDS_PER_PAGE)))
+        )
+    )
+
+    if edit:
+        await interaction.response.defer()
+        await interaction.message.edit(embed = embed, view = view)
+    else:
+        await interaction.response.send_message(embed = embed, view = view)
 
 # old method, please ignore
 async def show_inventory_slot(interaction: discord.Interaction, index: int = 0, edit: bool = False):
