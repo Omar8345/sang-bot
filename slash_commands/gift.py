@@ -55,4 +55,4 @@ async def gift(interaction: discord.Interaction, user: discord.Member, card: str
     )
 
     embed.description = f"Successfully transferred {amount:,} `{card.card_id}`'s to <@{other_user_id}>"
-    await interaction.response.send_message(embed=embed, silent=True)
+    await interaction.response.send_message(embed=embed)

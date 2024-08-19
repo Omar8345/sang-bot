@@ -39,4 +39,4 @@ async def pay(interaction: discord.Interaction, user: discord.Member, amount: in
     )
 
     embed.description = f"Successfully transferred {amount:,} {settings.hehet_emoji} to <@{other_user_id}>"
-    await interaction.response.send_message(embed=embed, silent=True)
+    await interaction.response.send_message(embed=embed)

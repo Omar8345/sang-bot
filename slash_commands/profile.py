@@ -11,7 +11,7 @@ import card_manager
 async def profile(interaction: discord.Interaction, bio: str | None = None, user: discord.Member | None = None):
     user_id = interaction.user.id
     username = interaction.user.name
-    if set is not None:
+    if bio is not None:
         await set_profile(interaction, bio)
         return
     elif user is not None:

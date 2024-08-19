@@ -178,13 +178,32 @@ async def add_cards(user_id: int, card: c_card.Card, amount: int = 1) -> c_card.
         )
 
 
-async def get_card_count(card_id: str) -> int:
-    return await db.card.count(
-        where = {
-            "card_id": card_id
+async def get_card_count(card_id: str = None, user_id: str = None) -> int:
+    where = {}
+    if user_id is not None:
+        where["user_id"] = user_id
+
+    if card_id is not None:
+        where["card_id"] = card_id
+
+    by = []
+    if user_id is not None:
+        by.append("user_id")
+
+    if card_id is not None:
+        by.append("card_id")
+
+    result =  await db.card.group_by(
+        by = by,
+        where = where,
+        sum = {
+            "amount": True
         }
     )
 
+    if len(result) == 0:
+        return 0
+    return result[0]['_sum']['amount']
 
 @makeSure_userExists
 async def get_profile(user_id: int, createNewProfile_ifNotFound: bool = True, include: dict = {}) -> c_profile.Profile | None:
@@ -385,3 +404,5 @@ async def update_gacha_info(user_id: int, new_data: dict, include: dict = {}):
         data = new_data,
         include = include
     )
+
+
