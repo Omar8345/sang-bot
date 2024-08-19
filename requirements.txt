@@ -1,0 +1,5 @@
+discord
+python-dotenv
+pydantic
+prisma
+pillow

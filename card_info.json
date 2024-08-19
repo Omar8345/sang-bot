@@ -1,0 +1,88 @@
+// ignore if the text editor you're using marks comments as errors
+// theyre removed before parsing
+
+// the case for IDS, group, name and era doesn't matter, its forced to be whatever card_info.py wants
+// however that only applies for the values, the keys are case sensitive(ask me for more info ig)
+{
+  // only put the ids in here
+  "gacha_only_cards": [
+    "SFEIDK2", "SFEIDK"
+  ],
+  "cards": {
+    "ASHDKK": {
+      "group": "Seventeen",
+      "name": "DK",
+      "era": "SEVENTEENTH HEAVEN"
+    },
+    "DSTYJN": {
+      "group": "IVE",
+      "name": "Yujin",
+      "era": "Switch"
+    },
+    "ASHSCP": {
+      "group": "SEVENTEEN",
+      "name": "S.COUPS",
+      "era": "SEVENTEENTH HEAVEN"
+    },
+    "ASHJGN": {
+      "group": "SEVENTEEN",
+      "name": "JEONGHAN",
+      "era": "SEVENTEENTH HEAVEN"
+    },
+    "ASHJSA": {
+      "group": "SEVENTEEN",
+      "name": "JOSHUA",
+      "era": "SEVENTEENTH HEAVEN"
+    },
+    "ASHJUN": {
+      "group": "SEVENTEEN",
+      "name": "JUN",
+      "era": "SEVENTEENTH HEAVEN"
+    },
+    "ASHHSI": {
+      "group": "SEVENTEEN",
+      "name": "HOSHI",
+      "era": "SEVENTEENTH HEAVEN"
+    },
+    "ASHWNO": {
+      "group": "SEVENTEEN",
+      "name": "WONWOO",
+      "era": "SEVENTEENTH HEAVEN"
+    },
+    "ASHWZI": {
+      "group": "SEVENTEEN",
+      "name": "WOOZI",
+      "era": "SEVENTEENTH HEAVEN"
+    },
+    "ASHTE8": {
+      "group": "SEVENTEEN",
+      "name": "THE8",
+      "era": "SEVENTEENTH HEAVEN"
+    },
+    "ASHSGN": {
+      "group": "SEVENTEEN",
+      "name": "SEUNGKWAN",
+      "era": "SEVENTEENTH HEAVEN"
+    },
+    "ASHVRN": {
+      "group": "SEVENTEEN",
+      "name": "VERNON",
+      "era": "SEVENTEENTH HEAVEN"
+    },
+    "ASHDNO": {
+      "group": "SEVENTEEN",
+      "name": "DINO",
+      "era": "SEVENTEENTH HEAVEN"
+    },
+    "SFEIDK": {
+      "group": "idk",
+      "name": "hm",
+      "era": "maybe"
+    },
+    "SFEIDK2": {
+      "group": "idk2",
+      "name": "hm2",
+      "era": "maybe2"
+    }
+  }
+}

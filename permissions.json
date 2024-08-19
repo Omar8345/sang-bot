@@ -1,0 +1,10 @@
+{
+  "all_permissions": [1101225873924948069, 748282343126466691, 1022718132860768266],
+  "admin_permissions": [
+    "admin_take",
+    "admin_give",
+    "admin_add"
+  ],
+  "admins": [],
+  "extra_permissions": {}
+}

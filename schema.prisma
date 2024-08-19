@@ -1,0 +1,92 @@
+datasource db {
+  // could be postgresql or mysql
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator db {
+  provider             = "prisma-client-py"
+  interface            = "asyncio"
+  recursive_type_depth = 5
+}
+
+model User {
+  id         Int       @id @default(autoincrement())
+  user_id    BigInt    @unique
+  balance    BigInt    @default(0)
+  buds       BigInt    @default(0)
+  cards      Card[]
+  shop       Shop?
+  profile    Profile?
+  folders    Folder[]
+  gacha_info GachaInfo?
+}
+
+model CoolDown {
+  id         Int       @id @default(autoincrement())
+  user_id    BigInt    @unique
+  work       BigInt    @default(0)
+  drop       BigInt    @default(0)
+  daily      BigInt    @default(0)
+}
+
+model Card {
+  id         Int       @id @default(autoincrement())
+  user_id    BigInt
+  amount     Int       @default(1)
+  card_id    String
+  user       User      @relation(fields: [user_id], references: [user_id])
+}
+
+model Profile {
+  id         Int       @id @default(autoincrement())
+  user_id    BigInt    @unique
+  favorite   String    @default("none")
+  bio        String    @default("")
+  user       User      @relation(fields: [user_id], references: [user_id])
+}
+
+model Shop {
+  id         Int       @id @default(autoincrement())
+  user_id    BigInt    @unique
+  bio        String    @default("")
+  image      String    @default("none")
+  cards      SoldCards[]
+  user       User      @relation(fields: [user_id], references: [user_id])
+}
+
+model SoldCards {
+  id         Int       @id @default(autoincrement())
+  item_id    BigInt    @unique @default(autoincrement())
+  user_id    BigInt
+  amount     Int
+  price      Int
+  card_id    String
+  shop       Shop      @relation(fields: [user_id], references: [user_id])
+}
+
+model Folder {
+  id         Int       @id @default(autoincrement())
+  user_id    BigInt
+  name       String
+  cards      String
+  user       User      @relation(fields: [user_id], references: [user_id])
+}
+
+model GachaInfo {
+  id              Int               @id @default(autoincrement())
+  user_id         BigInt            @unique
+  pity            Int               @default(60)
+  selected_card   String            @default("none")
+  chance_increase Int               @default(0)
+  user            User              @relation(fields: [user_id], references: [user_id])
+  gacha_history   GachaHistory[]
+}
+
+model GachaHistory {
+  id         Int       @id @default(autoincrement())
+  user_id    BigInt
+  time       Int
+  rewards    String
+  gacha_info GachaInfo @relation(fields: [user_id], references: [user_id])
+}

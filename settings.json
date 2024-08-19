@@ -1,0 +1,21 @@
+// ignore if pycharm says these comments are errors, they get removed when loading the settings
+{
+  // dnd = do not disturb
+  // idle = idle
+  // online = online
+  // invisible = offline
+  "status": "online",
+  "prefix": "!",
+  "guild_id": 1272624224451956856,
+  "embed_color": [0, 0, 255], // can be RGB or HEX, use [] instead of (), put HEX between "", no # required
+  "hehet_emoji": "<:hehet:1272922846682812509>",
+  "bud_price": 10000,
+  "tier_emojis": {
+    "A": "<:sang_a:1274494676996456448>",
+    "B": "<:sang_b:1274494744084480082>",
+    "C": "<:sang_c:1274494799113617569>",
+    "D": "<:sang_d:1274494880164610049>",
+    "E": "<:sang_e:1274494932257738842>",
+    "S": ":regional_indicator_s:"
+  }
+}
