@@ -178,7 +178,7 @@ async def add_cards(user_id: int, card: c_card.Card, amount: int = 1) -> c_card.
         )
 
 
-async def get_card_count(card_id: str = None, user_id: str = None) -> int:
+async def get_card_count(card_id: str = None, user_id: str = None, filters: dict | None = {}) -> int:
     where = {}
     if user_id is not None:
         where["user_id"] = user_id
@@ -192,6 +192,8 @@ async def get_card_count(card_id: str = None, user_id: str = None) -> int:
 
     if card_id is not None:
         by.append("card_id")
+
+    where.update(filters)
 
     result =  await db.card.group_by(
         by = by,

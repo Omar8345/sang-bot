@@ -3,7 +3,6 @@ import traceback
 
 
 def log_error(error: Exception) -> None:
-    return
     time = str(datetime.datetime.now()).split(".")[0] # removed the milliseconds >w<
     with open("error_logs.txt", "a") as f:
         f.write(f"[{time}] {''.join(traceback.format_exception(error))}\n")

@@ -9,4 +9,4 @@ load_dotenv()
 
 settings.init()
 
-bot.run(token = os.environ["TOKEN"])
+bot.run(token = os.environ["ADMIN_TOKEN"], admin = True)

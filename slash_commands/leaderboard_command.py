@@ -2,6 +2,7 @@ import discord
 from bot import tree, bot
 from settings import settings
 import leaderboard
+import card_info
 
 
 @tree.command(name="leaderboard_hehet", description="see the top players", guild=discord.Object(id = settings.guild_id))
@@ -32,15 +33,33 @@ async def hehet_leaderboard(interaction: discord.Interaction):
 
     await interaction.response.send_message(embed=embed, silent=True)
 
+
 @tree.command(name="leaderboard_cards", description="see the top players", guild=discord.Object(id = settings.guild_id))
-async def cards_leaderboard(interaction: discord.Interaction):
+async def cards_leaderboard(
+        interaction: discord.Interaction,
+        group: card_info.card_groups_enum | None = None,
+        idol: card_info.idols_enum | None = None
+):
+
+    title = "Cards Leaderboard"
+    if group is not None:
+        title = f"Group `{group.name}` Leaderboard"
+
+    if idol is not None:
+        title = f"Idol `{idol.name}` Leaderboard"
 
     embed = discord.Embed(
-        title = "Cards Leaderboard",
+        title = title,
         color = settings.embed_color
     )
 
-    result = leaderboard.load_top_cards()
+    if idol is not None:
+        result = leaderboard.load_top_idol(idol.name)
+    elif group is not None:
+        result = leaderboard.load_top_group(group.name)
+    else:
+        result = leaderboard.load_top_cards()
+
     place = 0
     for i, v in result:
         place += 1
@@ -52,10 +71,10 @@ async def cards_leaderboard(interaction: discord.Interaction):
             username = user.name
             display_name = user.display_name
 
-        plural = 's' if (i > 1) else ''
+        plural = 'ies' if (i > 1) else 'y'
         embed.add_field(
             name = f"{place}) {display_name} - {username}",
-            value = f"> {i:,} card{plural}",
+            value = f"> {i:,} cop{plural}",
             inline = False
         )
 

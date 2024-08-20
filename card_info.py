@@ -1,3 +1,4 @@
+import enum
 import json
 from pydantic import BaseModel
 import settings
@@ -57,3 +58,12 @@ non_gacha_cards_id = [i for i in non_gacha_cards_info.keys()]
 for card_id, card in non_gacha_cards_info.items():
     group_info[card.group].append(card_id)
 
+card_groups_enum = enum.Enum(
+    "CardGroups",
+    {group: i for i, group in enumerate(list({card.group for card in card_info.values()}))}
+)
+
+idols_enum = enum.Enum(
+    "IdolsEnum",
+    {name: i for i, name in enumerate(list({card.name for card in card_info.values()}))}
+)
