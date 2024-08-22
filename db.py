@@ -1,5 +1,4 @@
 import os
-
 import prisma
 import c_folder
 import c_gacha
@@ -9,8 +8,8 @@ import c_user
 import c_shop
 import c_cooldown
 import card_manager
+import card_info
 import time
-
 import reminder_handler
 
 # the most time that a gacha history can stay
@@ -18,7 +17,7 @@ import reminder_handler
 MAX_GACHA_HISTORY_SECONDS = 6 * 24 * 3600
 
 
-all_existing_cards = card_manager.load_cards()
+all_existing_cards = card_info.load_cards()
 db = prisma.Prisma()
 
 

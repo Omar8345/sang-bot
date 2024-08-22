@@ -1,7 +1,6 @@
 import enum
 import json
 from pydantic import BaseModel
-import card_manager
 import settings
 import os
 from functools import reduce
@@ -10,6 +9,7 @@ from functools import reduce
 all_upper_case = ["DK", "BTS", "RM"]
 all_lower_case = []
 
+CARD_DIRECTORY = "cards"
 GACHA_DIRECTORY_NAME = "Gacha"
 
 class CardInfo(BaseModel):
@@ -33,11 +33,33 @@ def _capitalize_names(name: str) -> str:
         return name.lower().title()
 
 
-all_cards = card_manager.load_cards()
+__cards = []
+def load_cards():
+    if len(__cards) != 0:
+        return __cards
+
+    for group in os.listdir(CARD_DIRECTORY):
+        group_path = os.path.join(CARD_DIRECTORY, group)
+
+        if not os.path.isdir(group_path): continue
+        for era in os.listdir(group_path):
+            era_path = os.path.join(group_path, era)
+
+            for card in os.listdir(era_path):
+                if not card.endswith(".png"):
+                    continue
+
+                card_id = card.split('.')[0]
+                __cards.append(card_id)
+
+    return __cards
+
+
+all_cards = load_cards()
 cards = {}
 gacha_only_cards_by_group = {}
-for group in os.listdir(card_manager.CARD_DIRECTORY):
-    group_path = os.path.join(card_manager.CARD_DIRECTORY, group)
+for group in os.listdir(CARD_DIRECTORY):
+    group_path = os.path.join(CARD_DIRECTORY, group)
 
     if not os.path.isdir(group_path): continue
     for era in os.listdir(group_path):

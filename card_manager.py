@@ -5,7 +5,7 @@ from typing import Any
 import card_info
 
 
-CARD_DIRECTORY = "cards"
+CARD_DIRECTORY = card_info.CARD_DIRECTORY
 
 cards = []
 
@@ -62,26 +62,6 @@ def count_cards(user: c_user.User) -> int:
 
     return amount
 
-
-def load_cards():
-    if len(cards) != 0:
-        return cards
-
-    for group in os.listdir(CARD_DIRECTORY):
-        group_path = os.path.join(CARD_DIRECTORY, group)
-
-        if not os.path.isdir(group_path): continue
-        for era in os.listdir(group_path):
-            era_path = os.path.join(group_path, era)
-
-            for card in os.listdir(era_path):
-                if not card.endswith(".png"):
-                    continue
-
-                card_id = card.split('.')[0]
-                cards.append(card_id)
-
-    return cards
 
 def load_card_info():
     ...
