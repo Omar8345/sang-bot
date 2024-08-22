@@ -3,7 +3,7 @@ import json
 from pydantic import BaseModel
 import settings
 
-all_upper_case = ["DK"]
+all_upper_case = ["DK", "BTS", "RM"]
 all_lower_case = []
 
 class CardInfo(BaseModel):

@@ -3,12 +3,19 @@ import c_card
 import db
 from bot import tree
 from settings import settings
-import slash_commands.drop as drop
 import check_permissions
 
+CARD_DIRECTORY = "cards"
+
+def load_cards():
+    cards = [
+        # removes file extension
+        i.split('.')[0] \
+        for i in os.listdir(CARD_DIRECTORY)
+    ]
+    return cards
 
 INTEGER_LIMIT = int('1' * 31, 2)
-
 @tree.command(name="admin_gift", description="create new cards", guild=discord.Object(id = settings.guild_id))
 async def admin_gift(interaction: discord.Interaction, user: discord.Member, card: str, amount: int = 1):
     user_id = interaction.user.id
@@ -31,7 +38,7 @@ async def admin_gift(interaction: discord.Interaction, user: discord.Member, car
         await interaction.response.send_message(f"Amount is too big (>{INTEGER_LIMIT:,})")
         return
 
-    if card.upper() not in drop.load_cards():
+    if card.upper() not in load_cards():
         await interaction.response.send_message(f"Card `{card}` doesn't exist")
         return
 

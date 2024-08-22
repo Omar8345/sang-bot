@@ -8,7 +8,7 @@ from bot import tree, bot
 from settings import settings
 from typing import Literal
 import os
-import slash_commands.drop as drop
+import admin.slash_commands.admin_gift as admin_gift
 import check_permissions
 
 
@@ -59,7 +59,7 @@ async def admin_shop(
         return
 
 
-    existing_cards = drop.load_cards()
+    existing_cards = admin_gift.load_cards()
     if card not in existing_cards:
         await interaction.response.send_message(f"Card `{card}` doesn't exist")
         return

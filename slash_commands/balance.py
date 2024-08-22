@@ -11,7 +11,7 @@ async def balance(interaction: discord.Interaction):
     embed = discord.Embed(
         title="Balance",
         colour=settings.embed_color,
-        description=f"You have `{user.balance:,}` {settings.hehet_emoji} and `{user.buds:,}` buds"
+        description=f"You have `{user.balance:,}` {settings.hehet_emoji} and `{user.buds:,}` {settings.bud_emoji}"
     )
 
     await interaction.response.send_message(embed=embed)

@@ -3,13 +3,13 @@ import discord
 import c_card
 from bot import tree
 from settings import settings
-import slash_commands.drop as drop
 import check_permissions
 from PIL import Image
 import card_info
 from io import BytesIO
 
 
+CARD_DIRECTORY = "cards"
 @tree.command(name="add_card", description="create a new card for the bot", guild=discord.Object(id = settings.guild_id))
 async def admin_add(interaction: discord.Interaction, id: str, group: str, name: str, era: str, card: discord.Attachment):
     user_id = interaction.user.id
@@ -28,7 +28,7 @@ async def admin_add(interaction: discord.Interaction, id: str, group: str, name:
     card_image.seek(0)
 
     img = Image.open(card_image)
-    img.save(os.path.join(drop.CARD_DIRECTORY, f"{id.upper()}.png"))
+    img.save(os.path.join(CARD_DIRECTORY, f"{id.upper()}.png"))
 
     card_info.add_card(
         id = id,

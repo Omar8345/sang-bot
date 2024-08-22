@@ -3,7 +3,7 @@ import c_card
 import db
 from bot import tree
 from settings import settings
-import slash_commands.drop as drop
+import admin.slash_commands.admin_gift as admin_gift
 import check_permissions
 
 
@@ -49,7 +49,7 @@ async def admin_take(interaction: discord.Interaction, user: discord.Member, car
     )
 
     if card is not None:
-        if card.upper() not in drop.load_cards():
+        if card.upper() not in admin_gift.load_cards():
             await interaction.response.send_message(f"Card `{card}` doesn't exist")
             return
 

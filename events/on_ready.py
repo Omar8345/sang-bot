@@ -6,11 +6,13 @@ import bot
 from settings import settings
 import db
 from discord.ext import tasks
+import reminder_handler
 
 
 @tasks.loop(hours = 1, reconnect=True)
 async def update_leaderboard():
     await leaderboard.calculate_leaderboards()
+
 
 async def handle() -> None:
     await db.connect()
@@ -18,4 +20,5 @@ async def handle() -> None:
 
     update_leaderboard.start()
 
+    reminder_handler.reminder_loop.start()
     await bot.tree.sync(guild=discord.Object(id=settings.guild_id))

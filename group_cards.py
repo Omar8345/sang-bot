@@ -16,7 +16,7 @@ CARD_IMAGES_DIRECTORY = "cards"
 ASSET_DIRECTORY = "assets"
 
 # if relative doesn't work use absolute
-FONT_PATH = "lemon_milk\\LEMONMILK-Medium.otf"
+FONT_PATH = "lemon_milk/LEMONMILK-Medium.otf"
 
 font = ImageFont.truetype(
     FONT_PATH,

@@ -9,6 +9,7 @@
   "guild_id": 1272624224451956856,
   "embed_color": [0, 0, 255], // can be RGB or HEX, use [] instead of (), put HEX between "", no # required
   "hehet_emoji": "<:hehet:1272922846682812509>",
+  "bud_emoji": "<:bud:1274117689555816640>",
   "bud_price": 10000,
   "tier_emojis": {
     "A": "<:sang_a:1274494676996456448>",

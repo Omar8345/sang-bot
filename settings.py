@@ -9,6 +9,7 @@ class Settings(BaseModel):
     guild_id: int
     embed_color: int
     hehet_emoji: str
+    bud_emoji: str
     bud_price: int
     tier_emojis: dict[str, str]
 

@@ -11,6 +11,7 @@ import c_cooldown
 import card_manager
 import time
 
+import reminder_handler
 
 # the most time that a gacha history can stay
 # rn its set to 6 months, after that it gets deleted
@@ -127,11 +128,32 @@ async def get_cooldown(user_id: int, createNewCooldown_ifNotFound: bool = True, 
 
 @makeSure_userExists
 async def update_cooldown(user_id: int, new_data: dict, include: dict = {}) -> None:
-    return await db.cooldown.update(
+    thing = await db.cooldown.update(
         where = { "user_id" : user_id },
         data = new_data,
         include = include
     )
+
+    reminder = None
+    for _reminder in reminder_handler.reminder_times.keys():
+        if _reminder in new_data:
+            reminder = _reminder
+
+    if reminder is not None:
+        result = await db.reminder.find_first(
+            where = {
+                "user_id": user_id,
+                reminder: 2
+            }
+        )
+        if result is not None:
+            await update_reminder(
+                user_id = user_id,
+                new_data = {
+                    reminder: 1
+                }
+            )
+    return thing
 
 
 @makeSure_userExists
@@ -408,3 +430,21 @@ async def update_gacha_info(user_id: int, new_data: dict, include: dict = {}):
     )
 
 
+@makeSure_userExists
+async def update_reminder(user_id: int, new_data: dict, include: dict = {}):
+    result = await db.reminder.update(
+        where = {
+            "user_id": user_id
+        },
+        data = new_data,
+        include = include
+    )
+
+    if result is None:
+        await db.reminder.create(
+            data={
+                "user_id": user_id,
+                **new_data
+            },
+            include = include
+        )

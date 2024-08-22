@@ -3,10 +3,10 @@ import c_card
 import db
 from bot import tree
 from settings import settings
-import slash_commands.drop as drop
 import check_permissions
 
 
+CARD_DIRECTORY = "cards"
 INTEGER_LIMIT = int('1' * 63, 2)
 @tree.command(name="admin_add", description="give an user currency from the bot", guild=discord.Object(id = settings.guild_id))
 async def admin_add(interaction: discord.Interaction, user: discord.Member, amount: int):
