@@ -1,5 +1,4 @@
 import discord
-import slash_commands.drop as drop
 import card_manager
 import db, os
 from bot import tree
@@ -37,7 +36,7 @@ async def ping(interaction: discord.Interaction, card: str):
 
     await interaction.response.defer()
 
-    file = discord.File(os.path.join(drop.CARD_DIRECTORY, f"{card}.png"), filename=f"{card}.png")
+    file = discord.File(card_manager.get_card_image_from_id(card), filename=f"{card}.png")
 
     embed.set_image(url=f"attachment://{card}.png")
     await interaction.followup.send(file=file, embed=embed)
