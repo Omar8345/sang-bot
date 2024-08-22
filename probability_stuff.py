@@ -1,6 +1,18 @@
 import random
 
 
+def get_random_from(chances: dict) -> str:
+    rarities = list(chances.keys())
+    random.shuffle(rarities)
+
+    count = 0
+    number = random.random() * 100
+    for rarity in rarities:
+        count += chances[rarity]
+        if count >= number:
+            return rarity
+
+
 def find_rarity(rarity: str, cards: list[str]):
     rarity = rarity.upper()
     for card in cards:

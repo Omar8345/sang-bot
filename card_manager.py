@@ -1,5 +1,43 @@
+import os
 import c_card
 import c_user
+from typing import Any
+import card_info
+
+
+CARD_DIRECTORY = "cards"
+
+cards = []
+
+CHANCES = { # out of 100
+    "E": 30,
+    "D": 25,
+    "C": 20,
+    "B": 15,
+    "A": 10
+}
+
+EVENT_CHANCES = { # out of 100
+    "E": 42,
+    "D": 20,
+    "C": 15,
+    "B": 10,
+    "A": 8,
+    "S": 5
+}
+
+LIMITED_EVENT_CHANCES = { # out of 100
+    "E": 42,
+    "D": 20,
+    "C": 15,
+    "B": 10,
+    "A": 7,
+    "S": 4,
+    "SSR": 2
+}
+
+def get_chances():
+    return CHANCES
 
 
 def find_card(user: c_user.User, card: str) -> c_card.Card | None:
@@ -23,3 +61,32 @@ def count_cards(user: c_user.User) -> int:
         amount += card.amount
 
     return amount
+
+
+def load_cards():
+    if len(cards) != 0:
+        return cards
+
+    for group in os.listdir(CARD_DIRECTORY):
+        group_path = os.path.join(CARD_DIRECTORY, group)
+
+        if not os.path.isdir(group_path): continue
+        for era in os.listdir(group_path):
+            era_path = os.path.join(group_path, era)
+
+            for card in os.listdir(era_path):
+                if not card.endswith(".png"):
+                    continue
+
+                card_id = card.split('.')[0]
+                cards.append(card_id)
+
+    return cards
+
+def load_card_info():
+    ...
+
+
+def get_card_image_from_id(card_id: str) -> str:
+    info = card_info.card_info[card_id.upper()]
+    return os.path.join(CARD_DIRECTORY, info.group, info.era, f"{card_id.upper()}.png")

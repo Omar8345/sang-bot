@@ -21,6 +21,9 @@ async def admin_add(interaction: discord.Interaction, id: str, group: str, name:
         await interaction.response.send_message(f"You don't have permissions to use this command")
         return
 
+    await interaction.response.send_message(f"if u see this it means i forgot to fix it(i changed how cards are stored so some stuff broke)")
+    return
+
     card_image = BytesIO()
     await card.save(card_image)
 

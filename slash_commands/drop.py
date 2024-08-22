@@ -12,80 +12,11 @@ import card_manager
 from typing import Any
 
 
-CARD_DIRECTORY = "cards"
-
 DROP_COOLDOWN_SECONDS = 120
-
-CHANCES = { # out of 100
-    "E": 30,
-    "D": 25,
-    "C": 20,
-    "B": 15,
-    "A": 10
-}
-
-EVENT_CHANCES = { # out of 100
-    "E": 42,
-    "D": 20,
-    "C": 15,
-    "B": 10,
-    "A": 8,
-    "S": 5
-}
-
-LIMITED_EVENT_CHANCES = { # out of 100
-    "E": 42,
-    "D": 20,
-    "C": 15,
-    "B": 10,
-    "A": 7,
-    "S": 4,
-    "SSR": 2
-}
-
-
-def load_cards():
-    cards = [
-        # removes file extension
-        i.split('.')[0] \
-        for i in os.listdir(CARD_DIRECTORY)
-    ]
-    return cards
-
-
-# outdated
-def __get_random_card(rarity: str) -> str | None:
-    cards = load_cards()
-    random.shuffle(cards)
-
-    for card in cards:
-        if card.lower().startswith(rarity.lower()):
-            return card
-
-    return None
 
 
 def get_chances():
     return CHANCES
-
-
-def get_random_from(chances: dict) -> Any:
-    rarities = list(chances.keys())
-    random.shuffle(rarities)
-
-    count = 0
-    number = random.random() * 100
-    for rarity in rarities:
-        count += chances[rarity]
-        if count >= number:
-            return rarity
-
-
-# outdated
-def __get_random_rarity():
-    chances = get_chances()
-
-    return get_random_from(chances)
 
 
 @tree.command(name="drop", description="get a random card", guild=discord.Object(id = settings.guild_id))
@@ -98,7 +29,7 @@ async def drop(interaction: discord.Interaction):
 
         await db.update_cooldown(user_id, {"drop": int(time.time())})
 
-        chances = get_chances()
+        chances = card_manager.get_chances()
         card = probability_stuff.get_random_card(chances, card_info.non_gacha_cards_id).upper()
         rarity = card[0]
 
@@ -117,7 +48,7 @@ async def drop(interaction: discord.Interaction):
                 amount = card_obj.amount + 1
 
             card_information = card_info.card_info[card]
-            chances = get_chances()
+            chances = card_manager.get_chances()
             embed = discord.Embed(
                 title = f"{settings.tier_emojis[rarity]} Tier {card_information.name} Card",
                 description = \
@@ -133,7 +64,7 @@ async def drop(interaction: discord.Interaction):
 
             await interaction.response.defer()
 
-            file = discord.File(os.path.join(CARD_DIRECTORY, f"{card}.png"), filename=f"{card}.png")
+            file = discord.File(card_manager.get_card_image_from_id(card), filename=f"{card}.png")
             embed.set_image(url=f"attachment://{card}.png")
 
             await interaction.followup.send(file=file, embed=embed)

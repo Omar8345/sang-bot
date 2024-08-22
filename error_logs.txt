@@ -58,3 +58,536 @@ NameError: name 'Literal' is not defined
          ^
 SyntaxError: invalid syntax
 
+[2024-08-22 20:13:47] Traceback (most recent call last):
+  File "C:\Users\dia\PycharmProjects\sang_bot\bot.py", line 32, in load_commands
+    command_handler = importlib.import_module(f"{path.replace('/', '.').rstrip('.')}.{command[:-3]}")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "C:\Users\dia\PycharmProjects\sang_bot\slash_commands\achievements.py", line 3, in <module>
+    import card_info
+  File "C:\Users\dia\PycharmProjects\sang_bot\card_info.py", line 49, in <module>
+    for group in os.listdir(card_manager.CARD_DIRECTORY):
+                 ^^
+NameError: name 'os' is not defined
+
+[2024-08-22 20:13:57] Traceback (most recent call last):
+  File "C:\Users\dia\PycharmProjects\sang_bot\bot.py", line 32, in load_commands
+    command_handler = importlib.import_module(f"{path.replace('/', '.').rstrip('.')}.{command[:-3]}")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "C:\Users\dia\PycharmProjects\sang_bot\slash_commands\achievements.py", line 3, in <module>
+    import card_info
+  File "C:\Users\dia\PycharmProjects\sang_bot\card_info.py", line 58, in <module>
+    era_info_path = json.load(os.path.join(era_path, "_cards_info.json"))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+                 ^^^^^^^
+AttributeError: 'str' object has no attribute 'read'
+
+[2024-08-22 20:14:16] Traceback (most recent call last):
+  File "C:\Users\dia\PycharmProjects\sang_bot\bot.py", line 32, in load_commands
+    command_handler = importlib.import_module(f"{path.replace('/', '.').rstrip('.')}.{command[:-3]}")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "C:\Users\dia\PycharmProjects\sang_bot\slash_commands\achievements.py", line 3, in <module>
+    import card_info
+  File "C:\Users\dia\PycharmProjects\sang_bot\card_info.py", line 58, in <module>
+    era_info_path = json.load(os.path.join(era_path, "_cards_info.json"))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+                 ^^^^^^^
+AttributeError: 'str' object has no attribute 'read'
+
+[2024-08-22 20:14:36] Traceback (most recent call last):
+  File "C:\Users\dia\PycharmProjects\sang_bot\bot.py", line 32, in load_commands
+    command_handler = importlib.import_module(f"{path.replace('/', '.').rstrip('.')}.{command[:-3]}")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "C:\Users\dia\PycharmProjects\sang_bot\slash_commands\achievements.py", line 3, in <module>
+    import card_info
+  File "C:\Users\dia\PycharmProjects\sang_bot\card_info.py", line 58, in <module>
+    era_info_path = json.load(os.path.join(era_path, "_cards_info.json"))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+                 ^^^^^^^
+AttributeError: 'str' object has no attribute 'read'
+
+[2024-08-22 20:14:43] Traceback (most recent call last):
+  File "C:\Users\dia\PycharmProjects\sang_bot\bot.py", line 32, in load_commands
+    command_handler = importlib.import_module(f"{path.replace('/', '.').rstrip('.')}.{command[:-3]}")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "C:\Users\dia\PycharmProjects\sang_bot\slash_commands\achievements.py", line 3, in <module>
+    import card_info
+  File "C:\Users\dia\PycharmProjects\sang_bot\card_info.py", line 59, in <module>
+    era_info_path = json.load(os.path.join(era_path, "_cards_info.json"))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+                 ^^^^^^^
+AttributeError: 'str' object has no attribute 'read'
+
+[2024-08-22 20:15:01] Traceback (most recent call last):
+  File "C:\Users\dia\PycharmProjects\sang_bot\bot.py", line 32, in load_commands
+    command_handler = importlib.import_module(f"{path.replace('/', '.').rstrip('.')}.{command[:-3]}")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "C:\Users\dia\PycharmProjects\sang_bot\slash_commands\achievements.py", line 3, in <module>
+    import card_info
+  File "C:\Users\dia\PycharmProjects\sang_bot\card_info.py", line 60, in <module>
+    with open(era_info) as f:
+              ^^^^^^^^
+NameError: name 'era_info' is not defined
+
+[2024-08-22 20:15:09] Traceback (most recent call last):
+  File "C:\Users\dia\PycharmProjects\sang_bot\bot.py", line 32, in load_commands
+    command_handler = importlib.import_module(f"{path.replace('/', '.').rstrip('.')}.{command[:-3]}")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "C:\Users\dia\PycharmProjects\sang_bot\slash_commands\gacha.py", line 40, in <module>
+    @tree.command(name="gacha", description="get random rewards, including exclusive cards", guild=discord.Object(id = settings.guild_id))
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\tree.py", line 935, in decorator
+    command = Command(
+              ^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\commands.py", line 687, in __init__
+    self._params: Dict[str, CommandParameter] = _extract_parameters_from_callback(callback, callback.__globals__)
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\commands.py", line 383, in _extract_parameters_from_callback
+    param = annotation_to_parameter(resolved, parameter)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\transformers.py", line 833, in annotation_to_parameter
+    (inner, default, validate_default) = get_supported_annotation(annotation)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\transformers.py", line 763, in get_supported_annotation
+    return (EnumValueTransformer(annotation), MISSING, False)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\transformers.py", line 433, in __init__
+    raise TypeError('enum.Enum requires at least two values.')
+TypeError: enum.Enum requires at least two values.
+
+[2024-08-22 20:16:16] Traceback (most recent call last):
+  File "C:\Users\dia\PycharmProjects\sang_bot\bot.py", line 32, in load_commands
+    command_handler = importlib.import_module(f"{path.replace('/', '.').rstrip('.')}.{command[:-3]}")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "C:\Users\dia\PycharmProjects\sang_bot\slash_commands\gacha.py", line 40, in <module>
+    @tree.command(name="gacha", description="get random rewards, including exclusive cards", guild=discord.Object(id = settings.guild_id))
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\tree.py", line 935, in decorator
+    command = Command(
+              ^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\commands.py", line 687, in __init__
+    self._params: Dict[str, CommandParameter] = _extract_parameters_from_callback(callback, callback.__globals__)
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\commands.py", line 383, in _extract_parameters_from_callback
+    param = annotation_to_parameter(resolved, parameter)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\transformers.py", line 833, in annotation_to_parameter
+    (inner, default, validate_default) = get_supported_annotation(annotation)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\transformers.py", line 763, in get_supported_annotation
+    return (EnumValueTransformer(annotation), MISSING, False)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\transformers.py", line 433, in __init__
+    raise TypeError('enum.Enum requires at least two values.')
+TypeError: enum.Enum requires at least two values.
+
+[2024-08-22 20:16:19] Traceback (most recent call last):
+  File "C:\Users\dia\PycharmProjects\sang_bot\bot.py", line 32, in load_commands
+    command_handler = importlib.import_module(f"{path.replace('/', '.').rstrip('.')}.{command[:-3]}")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "C:\Users\dia\PycharmProjects\sang_bot\slash_commands\achievements.py", line 3, in <module>
+    import card_info
+  File "C:\Users\dia\PycharmProjects\sang_bot\card_info.py", line 101, in <module>
+    print(card_groups_enum.value)
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\enum.py", line 786, in __getattr__
+    raise AttributeError(name) from None
+AttributeError: value
+
+[2024-08-22 20:16:39] Traceback (most recent call last):
+  File "C:\Users\dia\PycharmProjects\sang_bot\bot.py", line 32, in load_commands
+    command_handler = importlib.import_module(f"{path.replace('/', '.').rstrip('.')}.{command[:-3]}")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "C:\Users\dia\PycharmProjects\sang_bot\slash_commands\gacha.py", line 40, in <module>
+    @tree.command(name="gacha", description="get random rewards, including exclusive cards", guild=discord.Object(id = settings.guild_id))
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\tree.py", line 935, in decorator
+    command = Command(
+              ^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\commands.py", line 687, in __init__
+    self._params: Dict[str, CommandParameter] = _extract_parameters_from_callback(callback, callback.__globals__)
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\commands.py", line 383, in _extract_parameters_from_callback
+    param = annotation_to_parameter(resolved, parameter)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\transformers.py", line 833, in annotation_to_parameter
+    (inner, default, validate_default) = get_supported_annotation(annotation)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\transformers.py", line 763, in get_supported_annotation
+    return (EnumValueTransformer(annotation), MISSING, False)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\transformers.py", line 433, in __init__
+    raise TypeError('enum.Enum requires at least two values.')
+TypeError: enum.Enum requires at least two values.
+
+[2024-08-22 20:17:21] Traceback (most recent call last):
+  File "C:\Users\dia\PycharmProjects\sang_bot\bot.py", line 32, in load_commands
+    command_handler = importlib.import_module(f"{path.replace('/', '.').rstrip('.')}.{command[:-3]}")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "C:\Users\dia\PycharmProjects\sang_bot\slash_commands\gacha.py", line 40, in <module>
+    @tree.command(name="gacha", description="get random rewards, including exclusive cards", guild=discord.Object(id = settings.guild_id))
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\tree.py", line 935, in decorator
+    command = Command(
+              ^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\commands.py", line 687, in __init__
+    self._params: Dict[str, CommandParameter] = _extract_parameters_from_callback(callback, callback.__globals__)
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\commands.py", line 383, in _extract_parameters_from_callback
+    param = annotation_to_parameter(resolved, parameter)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\transformers.py", line 833, in annotation_to_parameter
+    (inner, default, validate_default) = get_supported_annotation(annotation)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\transformers.py", line 763, in get_supported_annotation
+    return (EnumValueTransformer(annotation), MISSING, False)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\transformers.py", line 433, in __init__
+    raise TypeError('enum.Enum requires at least two values.')
+TypeError: enum.Enum requires at least two values.
+
+[2024-08-22 20:17:41] Traceback (most recent call last):
+  File "C:\Users\dia\PycharmProjects\sang_bot\bot.py", line 32, in load_commands
+    command_handler = importlib.import_module(f"{path.replace('/', '.').rstrip('.')}.{command[:-3]}")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "C:\Users\dia\PycharmProjects\sang_bot\slash_commands\gacha.py", line 40, in <module>
+    @tree.command(name="gacha", description="get random rewards, including exclusive cards", guild=discord.Object(id = settings.guild_id))
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\tree.py", line 935, in decorator
+    command = Command(
+              ^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\commands.py", line 687, in __init__
+    self._params: Dict[str, CommandParameter] = _extract_parameters_from_callback(callback, callback.__globals__)
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\commands.py", line 383, in _extract_parameters_from_callback
+    param = annotation_to_parameter(resolved, parameter)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\transformers.py", line 833, in annotation_to_parameter
+    (inner, default, validate_default) = get_supported_annotation(annotation)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\transformers.py", line 763, in get_supported_annotation
+    return (EnumValueTransformer(annotation), MISSING, False)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\transformers.py", line 433, in __init__
+    raise TypeError('enum.Enum requires at least two values.')
+TypeError: enum.Enum requires at least two values.
+
+[2024-08-22 20:18:10] Traceback (most recent call last):
+  File "C:\Users\dia\PycharmProjects\sang_bot\bot.py", line 32, in load_commands
+    command_handler = importlib.import_module(f"{path.replace('/', '.').rstrip('.')}.{command[:-3]}")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "C:\Users\dia\PycharmProjects\sang_bot\slash_commands\gacha.py", line 40, in <module>
+    @tree.command(name="gacha", description="get random rewards, including exclusive cards", guild=discord.Object(id = settings.guild_id))
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\tree.py", line 935, in decorator
+    command = Command(
+              ^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\commands.py", line 687, in __init__
+    self._params: Dict[str, CommandParameter] = _extract_parameters_from_callback(callback, callback.__globals__)
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\commands.py", line 383, in _extract_parameters_from_callback
+    param = annotation_to_parameter(resolved, parameter)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\transformers.py", line 833, in annotation_to_parameter
+    (inner, default, validate_default) = get_supported_annotation(annotation)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\transformers.py", line 763, in get_supported_annotation
+    return (EnumValueTransformer(annotation), MISSING, False)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\transformers.py", line 433, in __init__
+    raise TypeError('enum.Enum requires at least two values.')
+TypeError: enum.Enum requires at least two values.
+
+[2024-08-22 20:18:17] Traceback (most recent call last):
+  File "C:\Users\dia\PycharmProjects\sang_bot\bot.py", line 32, in load_commands
+    command_handler = importlib.import_module(f"{path.replace('/', '.').rstrip('.')}.{command[:-3]}")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "C:\Users\dia\PycharmProjects\sang_bot\slash_commands\gacha.py", line 40, in <module>
+    @tree.command(name="gacha", description="get random rewards, including exclusive cards", guild=discord.Object(id = settings.guild_id))
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\tree.py", line 935, in decorator
+    command = Command(
+              ^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\commands.py", line 687, in __init__
+    self._params: Dict[str, CommandParameter] = _extract_parameters_from_callback(callback, callback.__globals__)
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\commands.py", line 383, in _extract_parameters_from_callback
+    param = annotation_to_parameter(resolved, parameter)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\transformers.py", line 833, in annotation_to_parameter
+    (inner, default, validate_default) = get_supported_annotation(annotation)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\transformers.py", line 763, in get_supported_annotation
+    return (EnumValueTransformer(annotation), MISSING, False)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\transformers.py", line 433, in __init__
+    raise TypeError('enum.Enum requires at least two values.')
+TypeError: enum.Enum requires at least two values.
+
+[2024-08-22 20:18:33] Traceback (most recent call last):
+  File "C:\Users\dia\PycharmProjects\sang_bot\bot.py", line 32, in load_commands
+    command_handler = importlib.import_module(f"{path.replace('/', '.').rstrip('.')}.{command[:-3]}")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "C:\Users\dia\PycharmProjects\sang_bot\slash_commands\gacha.py", line 40, in <module>
+    @tree.command(name="gacha", description="get random rewards, including exclusive cards", guild=discord.Object(id = settings.guild_id))
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\tree.py", line 935, in decorator
+    command = Command(
+              ^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\commands.py", line 687, in __init__
+    self._params: Dict[str, CommandParameter] = _extract_parameters_from_callback(callback, callback.__globals__)
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\commands.py", line 383, in _extract_parameters_from_callback
+    param = annotation_to_parameter(resolved, parameter)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\transformers.py", line 833, in annotation_to_parameter
+    (inner, default, validate_default) = get_supported_annotation(annotation)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\transformers.py", line 763, in get_supported_annotation
+    return (EnumValueTransformer(annotation), MISSING, False)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\dia\PycharmProjects\sang_bot\venv\Lib\site-packages\discord\app_commands\transformers.py", line 433, in __init__
+    raise TypeError('enum.Enum requires at least two values.')
+TypeError: enum.Enum requires at least two values.
+
+[2024-08-22 20:19:36] Traceback (most recent call last):
+  File "C:\Users\dia\PycharmProjects\sang_bot\bot.py", line 32, in load_commands
+    command_handler = importlib.import_module(f"{path.replace('/', '.').rstrip('.')}.{command[:-3]}")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "C:\Users\dia\PycharmProjects\sang_bot\slash_commands\achievements.py", line 3, in <module>
+    import card_info
+  File "C:\Users\dia\PycharmProjects\sang_bot\card_info.py", line 67
+    cards[card_id] = {
+IndentationError: unexpected indent
+
+[2024-08-22 20:26:37] Traceback (most recent call last):
+  File "C:\Users\dia\PycharmProjects\sang_bot\bot.py", line 32, in load_commands
+    command_handler = importlib.import_module(f"{path.replace('/', '.').rstrip('.')}.{command[:-3]}")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "C:\Users\dia\PycharmProjects\sang_bot\slash_commands\achievements.py", line 3, in <module>
+    import card_info
+  File "C:\Users\dia\PycharmProjects\sang_bot\card_info.py", line 7
+    from functools import []
+                          ^
+SyntaxError: invalid syntax
+
+[2024-08-22 20:26:51] Traceback (most recent call last):
+  File "C:\Users\dia\PycharmProjects\sang_bot\bot.py", line 32, in load_commands
+    command_handler = importlib.import_module(f"{path.replace('/', '.').rstrip('.')}.{command[:-3]}")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "C:\Users\dia\PycharmProjects\sang_bot\slash_commands\achievements.py", line 3, in <module>
+    import card_info
+  File "C:\Users\dia\PycharmProjects\sang_bot\card_info.py", line 77, in <module>
+    gacha_only_cards_by_group[era] = [card_id]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'gacha_only_cards_by_group' is not defined
+
+[2024-08-22 20:27:04] Traceback (most recent call last):
+  File "C:\Users\dia\PycharmProjects\sang_bot\bot.py", line 32, in load_commands
+    command_handler = importlib.import_module(f"{path.replace('/', '.').rstrip('.')}.{command[:-3]}")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "C:\Users\dia\PycharmProjects\sang_bot\slash_commands\achievements.py", line 3, in <module>
+    import card_info
+  File "C:\Users\dia\PycharmProjects\sang_bot\card_info.py", line 76, in <module>
+    if era not in gacha_only_cards:
+                  ^^^^^^^^^^^^^^^^
+NameError: name 'gacha_only_cards' is not defined
+
+[2024-08-22 20:27:15] Traceback (most recent call last):
+  File "C:\Users\dia\PycharmProjects\sang_bot\bot.py", line 32, in load_commands
+    command_handler = importlib.import_module(f"{path.replace('/', '.').rstrip('.')}.{command[:-3]}")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "C:\Users\dia\PycharmProjects\sang_bot\slash_commands\achievements.py", line 3, in <module>
+    import card_info
+  File "C:\Users\dia\PycharmProjects\sang_bot\card_info.py", line 81, in <module>
+    gacha_only_cards = reduce((lambda a, b: a + b), gacha_only_cards.values(), [])
+                                                    ^^^^^^^^^^^^^^^^
+NameError: name 'gacha_only_cards' is not defined
+

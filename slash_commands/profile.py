@@ -3,7 +3,6 @@ from bot import tree
 from settings import settings
 import os
 import db
-import slash_commands.drop as drop
 import card_manager
 
 
@@ -44,7 +43,7 @@ async def profile(interaction: discord.Interaction, bio: str | None = None, user
     if user_profile.favorite != "none":
         card_id = user_profile.favorite
 
-        file = discord.File(os.path.join(drop.CARD_DIRECTORY, f"{card_id}.png"), f"{card_id}.png")
+        file = discord.File(card_manager.get_card_image_from_id(card_id), f"{card_id}.png")
         embed.set_image(url=f"attachment://{card_id}.png")
 
         kwargs["file"] = file

@@ -4,10 +4,10 @@ from bot import tree
 from settings import settings
 import db
 import time
-from slash_commands import drop
 import c_card
 import os
 import card_info
+import card_manager
 
 
 DAILY_COOLDOWN_SECONDS = 24 * 3_600
@@ -25,7 +25,7 @@ async def daily(interaction: discord.Interaction):
     if time.time() - cool_downs.daily > DAILY_COOLDOWN_SECONDS:
         user = await db.get_user(user_id)
 
-        chances = drop.get_chances()
+        chances = probability_stuff.get_chances()
 
         card_id = probability_stuff.get_random_card(chances, card_info.non_gacha_cards_id).upper()
         card_rarity = card_id[0]
@@ -51,7 +51,7 @@ async def daily(interaction: discord.Interaction):
         embed.description += f"+ {settings.tier_emojis[card_rarity]} Tier card (`{card_id}`)"
 
         await interaction.response.defer()
-        file = discord.File(os.path.join(drop.CARD_DIRECTORY, f"{card_id}.png"), f"{card_id}.png")
+        file = discord.File(os.path.join(card_manager.CARD_DIRECTORY, f"{card_id}.png"), f"{card_id}.png")
         embed.set_image(url=f"attachment://{card_id}.png")
 
         await interaction.followup.send(file=file, embed=embed)

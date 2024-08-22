@@ -1,0 +1,210 @@
+{
+  "ASHDKK": {
+    "name": "DK",
+    "rarity": "A"
+  },
+  "ASHDNO": {
+    "name": "Dino",
+    "rarity": "A"
+  },
+  "ASHHSI": {
+    "name": "Hoshi",
+    "rarity": "A"
+  },
+  "ASHJGN": {
+    "name": "Jeonghan",
+    "rarity": "A"
+  },
+  "ASHJSA": {
+    "name": "Joshua",
+    "rarity": "A"
+  },
+  "ASHJUN": {
+    "name": "Jun",
+    "rarity": "A"
+  },
+  "ASHMGU": {
+    "name": "Mingyu",
+    "rarity": "A"
+  },
+  "ASHSCP": {
+    "name": "S.Coups",
+    "rarity": "A"
+  },
+  "ASHSGN": {
+    "name": "Seungkwan",
+    "rarity": "A"
+  },
+  "ASHTE8": {
+    "name": "The8",
+    "rarity": "A"
+  },
+  "ASHVRN": {
+    "name": "Vernon",
+    "rarity": "A"
+  },
+  "ASHWNO": {
+    "name": "Wonwoo",
+    "rarity": "A"
+  },
+  "ASHWZI": {
+    "name": "Woozi",
+    "rarity": "A"
+  },
+  "CSHDKK": {
+    "name": "DK",
+    "rarity": "C"
+  },
+  "CSHDNO": {
+    "name": "Dino",
+    "rarity": "C"
+  },
+  "CSHHSI": {
+    "name": "Hoshi",
+    "rarity": "C"
+  },
+  "CSHJGN": {
+    "name": "Jeonghan",
+    "rarity": "C"
+  },
+  "CSHJSA": {
+    "name": "Joshua",
+    "rarity": "C"
+  },
+  "CSHJUN": {
+    "name": "Jun",
+    "rarity": "C"
+  },
+  "CSHMGU": {
+    "name": "Mingyu",
+    "rarity": "C"
+  },
+  "CSHSCP": {
+    "name": "S.Coups",
+    "rarity": "C"
+  },
+  "CSHSGN": {
+    "name": "Seungkwan",
+    "rarity": "C"
+  },
+  "CSHTE8": {
+    "name": "The8",
+    "rarity": "C"
+  },
+  "CSHVRN": {
+    "name": "Vernon",
+    "rarity": "C"
+  },
+  "CSHWNO": {
+    "name": "Wonwoo",
+    "rarity": "C"
+  },
+  "CSHWZI": {
+    "name": "Woozi",
+    "rarity": "C"
+  },
+  "DSHDKK": {
+    "name": "DK",
+    "rarity": "D"
+  },
+  "DSHDNO": {
+    "name": "Dino",
+    "rarity": "D"
+  },
+  "DSHHSI": {
+    "name": "Hoshi",
+    "rarity": "D"
+  },
+  "DSHJGN": {
+    "name": "Jeonghan",
+    "rarity": "D"
+  },
+  "DSHJSA": {
+    "name": "Joshua",
+    "rarity": "D"
+  },
+  "DSHJUN": {
+    "name": "Jun",
+    "rarity": "D"
+  },
+  "DSHMGU": {
+    "name": "Mingyu",
+    "rarity": "D"
+  },
+  "DSHSCP": {
+    "name": "S.Coups",
+    "rarity": "D"
+  },
+  "DSHSGN": {
+    "name": "Seungkwan",
+    "rarity": "D"
+  },
+  "DSHTE8": {
+    "name": "The8",
+    "rarity": "D"
+  },
+  "DSHVRN": {
+    "name": "Vernon",
+    "rarity": "D"
+  },
+  "DSHWNO": {
+    "name": "Wonwoo",
+    "rarity": "D"
+  },
+  "DSHWZI": {
+    "name": "Woozi",
+    "rarity": "D"
+  },
+  "ESHDKK": {
+    "name": "DK",
+    "rarity": "E"
+  },
+  "ESHDNO": {
+    "name": "Dino",
+    "rarity": "E"
+  },
+  "ESHHSI": {
+    "name": "Hoshi",
+    "rarity": "E"
+  },
+  "ESHJGN": {
+    "name": "Jeonghan",
+    "rarity": "E"
+  },
+  "ESHJSA": {
+    "name": "Joshua",
+    "rarity": "E"
+  },
+  "ESHJUN": {
+    "name": "Jun",
+    "rarity": "E"
+  },
+  "ESHMGU": {
+    "name": "Mingyu",
+    "rarity": "E"
+  },
+  "ESHSCP": {
+    "name": "S.Coups",
+    "rarity": "E"
+  },
+  "ESHSGN": {
+    "name": "Seungkwan",
+    "rarity": "E"
+  },
+  "ESHTE8": {
+    "name": "The8",
+    "rarity": "E"
+  },
+  "ESHVRN": {
+    "name": "Vernon",
+    "rarity": "E"
+  },
+  "ESHWNO": {
+    "name": "Wonwoo",
+    "rarity": "E"
+  },
+  "ESHWZI": {
+    "name": "Woozi",
+    "rarity": "E"
+  }
+}

@@ -1,5 +1,4 @@
 import discord
-
 import c_card
 import db
 from bot import tree

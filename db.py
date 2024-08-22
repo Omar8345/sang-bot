@@ -18,11 +18,7 @@ import reminder_handler
 MAX_GACHA_HISTORY_SECONDS = 6 * 24 * 3600
 
 
-all_existing_cards = [
-        # removes file extension
-        i.split('.')[0] \
-        for i in os.listdir("cards")
-    ]
+all_existing_cards = card_manager.load_cards()
 db = prisma.Prisma()
 
 
@@ -99,12 +95,14 @@ async def get_user(user_id: int, createNewUser_ifNotFound: bool = True, include:
 
     return user
 
+
 async def update_user(user_id: int, new_data: dict, include: dict = {}) -> None:
     return await db.user.update(
         where = { "user_id" : user_id },
         data = new_data,
         include = include
     )
+
 
 @makeSure_userExists
 async def get_cooldown(user_id: int, createNewCooldown_ifNotFound: bool = True, include: dict = {}) -> c_cooldown.Cooldown | None:
@@ -125,6 +123,7 @@ async def get_cooldown(user_id: int, createNewCooldown_ifNotFound: bool = True, 
             return None
 
     return cooldown
+
 
 @makeSure_userExists
 async def update_cooldown(user_id: int, new_data: dict, include: dict = {}) -> None:
@@ -191,6 +190,7 @@ async def add_cards(user_id: int, card: c_card.Card, amount: int = 1) -> c_card.
     else:
         if amount < 0:
             return
+
         return await db.card.create(
             data = {
                 "user_id": user_id,

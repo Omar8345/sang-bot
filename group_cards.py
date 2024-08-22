@@ -1,6 +1,7 @@
 import os
 from PIL import Image, ImageDraw, ImageFont
 from io import BytesIO
+import card_manager
 
 
 TEXT_COLOR = (255, 255, 255)
@@ -152,7 +153,7 @@ def generate_image(
         elif _id == BUD_ID:
             pasted_image = BIG_BUD_IMAGE
         else:
-            pasted_image = Image.open(os.path.join(CARD_IMAGES_DIRECTORY, f"{displayed_text}.png")).resize((CARD_WIDTH, CARD_HEIGHT))
+            pasted_image = Image.open(card_manager.get_card_image_from_id(displayed_text)).resize((CARD_WIDTH, CARD_HEIGHT))
 
         y, x = divmod(i, 5)
         # not centered

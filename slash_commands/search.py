@@ -10,7 +10,6 @@ import db
 import os
 import card_manager
 from typing import Any
-import slash_commands.drop as drop
 
 
 @tree.command(name="search", description="search information about a card", guild=discord.Object(id = settings.guild_id))
@@ -37,7 +36,7 @@ async def search(interaction: discord.Interaction, card: str):
         cards_owned = card_owned.amount
 
     card_count = await db.get_card_count(card)
-    chances = drop.get_chances()
+    chances = card_manager.get_chances()
 
     embed = discord.Embed(
         title = f"Searching…",
@@ -52,7 +51,7 @@ async def search(interaction: discord.Interaction, card: str):
 
     await interaction.response.defer()
 
-    file = discord.File(os.path.join(drop.CARD_DIRECTORY, f"{card}.png"), filename=f"{card}.png")
+    file = discord.File(card_manager.get_card_image_from_id(card), filename=f"{card}.png")
     embed.set_image(url=f"attachment://{card}.png")
 
     await interaction.followup.send(file=file, embed=embed)

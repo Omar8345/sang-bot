@@ -3,3 +3,4 @@ python-dotenv
 pydantic
 prisma
 pillow
+prisma-client

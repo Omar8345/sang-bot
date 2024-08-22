@@ -8,7 +8,7 @@ import group_cards
 from bot import tree
 from settings import settings
 import db
-import slash_commands.drop as drop
+import card_manager
 from enum import Enum
 from io import BytesIO
 import probability_stuff
@@ -16,8 +16,6 @@ from discord import ButtonStyle
 from discord.ui import View, Button
 import json
 
-
-CARD_DIRECTORY = "cards"
 
 DROP_COOLDOWN_SECONDS = 120
 
@@ -72,7 +70,7 @@ async def gacha(interaction: discord.Interaction, gacha_name: gacha_types, group
             pity = random.randint(50, 100)
             continue
         else:
-            drop_type = drop.get_random_from(CHANCES)
+            drop_type = probability_stuff.get_random_from(CHANCES)
 
         cards_from_group = card_info.group_info[group.name]
         if drop_type == HEHET:
@@ -80,7 +78,7 @@ async def gacha(interaction: discord.Interaction, gacha_name: gacha_types, group
         elif drop_type == BUDS:
             rewards.append([group_cards.BUD_ID, random.randint(1, 2)])
         elif drop_type == REGULAR_CARD:
-            rewards.append([CARD, probability_stuff.get_random_card(drop.get_chances(), cards_from_group)])
+            rewards.append([CARD, probability_stuff.get_random_card(card_manager.get_chances(), cards_from_group)])
         elif drop_type == FEATURED_CARD:
             _cards = card_info.gacha_only_cards
             if gacha_info.selected_card != "none":

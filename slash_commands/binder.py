@@ -5,7 +5,6 @@ from settings import settings
 import os
 from discord import ButtonStyle
 from discord.ui import View, Button
-import slash_commands.drop as drop
 from io import BytesIO
 import group_cards
 
