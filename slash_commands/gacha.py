@@ -15,6 +15,7 @@ import probability_stuff
 from discord import ButtonStyle
 from discord.ui import View, Button
 import json
+import achievements_manager
 
 
 DROP_COOLDOWN_SECONDS = 120
@@ -74,7 +75,9 @@ async def gacha(interaction: discord.Interaction, gacha_name: gacha_types, group
 
         cards_from_group = card_info.group_info[group.name]
         if drop_type == HEHET:
-            rewards.append([group_cards.HEHET_ID, random.randint(5_000, 10_000)])
+            reward_ = random.randint(5_000, 10_000)
+            rewards.append([group_cards.HEHET_ID, reward_])
+            await achievements_manager.add_to_progress(db, user_id, achievements_manager.HEHET_COLLECTED, reward_)
         elif drop_type == BUDS:
             rewards.append([group_cards.BUD_ID, random.randint(1, 2)])
         elif drop_type == REGULAR_CARD:

@@ -1,5 +1,5 @@
 import discord
-
+import achievements_manager
 import c_card
 from bot import tree
 from settings import settings
@@ -31,6 +31,10 @@ async def buy(interaction: discord.Interaction, item_id: str, amount: int):
     )
 
     card = await db.get_sold_card(item_id)
+
+    if card.user_id == user_id:
+        await interaction.response.send_message("You can't buy from yourself")
+        return
 
     if card is None:
         bad_id = True
@@ -79,6 +83,7 @@ async def buy(interaction: discord.Interaction, item_id: str, amount: int):
         }
     )
 
+    await achievements_manager.add_to_progress(db, user_id, achievements_manager.HEHET_SPENT, price)
     await interaction.response.send_message(f"Successfully bought {amount:,} cards for {price:,} {settings.hehet_emoji}")
 
 
@@ -103,4 +108,5 @@ async def buy_buds(interaction: discord.Interaction, amount: int):
             "balance": user.balance - price
         }
     )
+    await achievements_manager.add_to_progress(db, user_id, achievements_manager.HEHET_SPENT, price)
     await interaction.response.send_message(f"Successfully bought {amount:,} buds for {price:,} {settings.hehet_emoji}")

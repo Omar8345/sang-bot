@@ -1,4 +1,5 @@
 import discord
+import achievements_manager
 import c_card
 import card_info
 from bot import tree
@@ -13,11 +14,11 @@ from discord import ButtonStyle
 import math
 
 
-ACHIEVEMENTS_PER_PAGE = 8
+ACHIEVEMENTS_PER_PAGE = 5
 
 
 @tree.command(name="achievements", description="check your achievements", guild=discord.Object(id = settings.guild_id))
-async def achievements(interaction: discord.Interaction): # old method: ', card: str | None = None):'
+async def achievements(interaction: discord.Interaction):
     await show_achievements(interaction)
 
 
@@ -34,19 +35,24 @@ async def show_achievements(interaction: discord.Interaction, page: int = 1, edi
         }
     )
 
+    # loads them just in case they don't exist
+    await db.get_achievements(user_id = user_id)
+
+    achievements_ = await achievements_manager.get_achievement_progress(user_data, (page * ACHIEVEMENTS_PER_PAGE, (page + 1) * ACHIEVEMENTS_PER_PAGE))
+
     embed = discord.Embed(
         title = "Achievements",
         color = settings.embed_color
     )
 
-    user_data.cards.sort(
-        key = (lambda x: rank_order[x.card_id[0].upper()])
-    )
-
 
     # hey dont forget to fill me -w-
-    for achievement in achievements:
-        ...
+    for achievement, progress in achievements_:
+        embed.add_field(
+            name = achievement,
+            value = progress,
+            inline = False
+        )
 
     view = View(timeout=60)
     view.add_item(
@@ -61,7 +67,7 @@ async def show_achievements(interaction: discord.Interaction, page: int = 1, edi
     view.add_item(
         Button(
             style = ButtonStyle.primary,
-            label = f"{page + 1} / {math.ceil(len(user_data.cards) / ACHIEVEMENTS_PER_PAGE)}",
+            label = f"{page + 1} / {math.ceil(len(achievements_manager.achievement_names) / ACHIEVEMENTS_PER_PAGE)}",
             disabled = True
         )
     )
@@ -71,7 +77,7 @@ async def show_achievements(interaction: discord.Interaction, page: int = 1, edi
             style = ButtonStyle.primary,
             label = ">",
             custom_id = f"[{user_id}]achievements%{page + 1}%next",
-            disabled = (page + 1 == math.ceil((len(user_data.cards) / ACHIEVEMENTS_PER_PAGE)))
+            disabled = (page + 1 == math.ceil(len(achievements_manager.achievement_names) / ACHIEVEMENTS_PER_PAGE))
         )
     )
 

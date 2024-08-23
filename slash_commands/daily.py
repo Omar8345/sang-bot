@@ -1,4 +1,5 @@
 import discord
+import achievements_manager
 import probability_stuff
 from bot import tree
 from settings import settings
@@ -46,12 +47,13 @@ async def daily(interaction: discord.Interaction):
         )
 
         await db.update_cooldown(user_id, {"daily": int(time.time())})
+        await achievements_manager.add_to_progress(db, user_id, achievements_manager.HEHET_COLLECTED, DAILY_HEHET_REWARD)
 
         embed.description = f"+ {DAILY_HEHET_REWARD:,} {settings.hehet_emoji}\n"
         embed.description += f"+ {settings.tier_emojis[card_rarity]} Tier card (`{card_id}`)"
 
         await interaction.response.defer()
-        file = discord.File(os.path.join(card_manager.CARD_DIRECTORY, f"{card_id}.png"), f"{card_id}.png")
+        file = discord.File(card_manager.get_card_image_from_id(card_id), f"{card_id}.png")
         embed.set_image(url=f"attachment://{card_id}.png")
 
         await interaction.followup.send(file=file, embed=embed)

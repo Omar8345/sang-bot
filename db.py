@@ -1,5 +1,7 @@
 import os
 import prisma
+import achievements_manager
+import c_achievements
 import c_folder
 import c_gacha
 import c_profile
@@ -92,6 +94,10 @@ async def get_user(user_id: int, createNewUser_ifNotFound: bool = True, include:
             include = include
         )
 
+    if "achievements" in include:
+        if include["achievements"] == True:
+            user.achievements = await get_achievements(user_id = user_id)
+
     return user
 
 
@@ -106,7 +112,7 @@ async def update_user(user_id: int, new_data: dict, include: dict = {}) -> None:
 @makeSure_userExists
 async def get_cooldown(user_id: int, createNewCooldown_ifNotFound: bool = True, include: dict = {}) -> c_cooldown.Cooldown | None:
     cooldown = await db.cooldown.find_first(
-        where = { " user_id " : user_id },
+        where = { "user_id" : user_id },
         include = include
     )
 
@@ -231,7 +237,7 @@ async def get_card_count(card_id: str = None, user_id: str = None, filters: dict
 @makeSure_userExists
 async def get_profile(user_id: int, createNewProfile_ifNotFound: bool = True, include: dict = {}) -> c_profile.Profile | None:
     profile = await db.profile.find_first(
-        where = { " user_id " : user_id },
+        where = { "user_id" : user_id },
         include = include
     )
 
@@ -263,7 +269,7 @@ async def update_profile(user_id: int, new_data: dict, include: dict = {}) -> No
 @makeSure_userExists
 async def get_shop(user_id: int, createNewShop_ifNotFound: bool = True, include: dict = {}) -> c_shop.Shop | None:
     shop = await db.shop.find_first(
-        where = { " user_id " : user_id },
+        where = { "user_id" : user_id },
         include = include
     )
 
@@ -377,7 +383,7 @@ async def get_folder(user_id: int, folder_name: str) -> c_folder.Folder:
 @makeSure_userExists
 async def get_gacha_info(user_id: int, createNewInfo_ifNotFound: bool = True, include: dict = {}) -> c_gacha.GachaInfo | None:
     gacha_info = await db.gachainfo.find_first(
-        where = { " user_id " : user_id },
+        where = { "user_id" : user_id },
         include = include
     )
 
@@ -447,3 +453,52 @@ async def update_reminder(user_id: int, new_data: dict, include: dict = {}):
             },
             include = include
         )
+
+@makeSure_userExists
+async def get_achievements(user_id: int, createNewAchievements_ifNotFound: bool = True, include: dict = {"achievements": True}) -> c_achievements.Achievements | None:
+    achievements_ = await db.achievements.find_first(
+        where={"user_id": user_id},
+        include=include
+    )
+
+    if achievements_ is None:
+        if createNewAchievements_ifNotFound:
+            await db.achievements.create({
+                "user_id": user_id
+            })
+
+            for achievement in achievements_manager.achievement_names.keys():
+                await db.achievement.create(
+                    {
+                        "user_id": user_id,
+                        "name": achievement
+                    }
+                )
+
+            achievements_ = await db.achievements.find_first(
+                where={"user_id": user_id},
+                include=include
+            )
+        else:
+            return None
+
+    return achievements_
+
+async def update_achievement(user_id: int, achievement: str, new_data: dict) -> c_achievements.Achievement:
+    return await db.achievement.update_many(
+        where = {
+            "user_id": user_id,
+            "name": achievement
+        },
+        data = new_data
+    )
+
+
+@makeSure_userExists
+async def get_achievement(user_id: int, achievement: str, new_data = {}, include: dict = {}) -> c_achievements.Achievement:
+    return (await db.achievement.find_many(
+        where = {
+            "user_id": user_id,
+            "name": achievement
+        }
+    ))[0]

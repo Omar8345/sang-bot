@@ -3,6 +3,7 @@ from bot import tree
 from settings import settings
 import db
 import time
+import achievements_manager
 
 
 WORK_COOLDOWN_SECONDS = 3_600
@@ -24,7 +25,9 @@ async def work(interaction: discord.Interaction):
         await db.update_user(user_id, {"balance": user.balance + PAYMENT})
         await db.update_cooldown(user_id, {"work": int(time.time())})
 
-        embed.description = f"+ {PAYMENT:,} {settings.hehet_emoji}    "
+        embed.description = f"+ {PAYMENT:,} {settings.hehet_emoji}"
+
+        await achievements_manager.add_to_progress(db, user_id, achievements_manager.HEHET_COLLECTED, PAYMENT)
         await interaction.response.send_message(embed = embed)
     else:
         next_time = cool_downs.work + WORK_COOLDOWN_SECONDS

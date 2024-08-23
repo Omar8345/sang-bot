@@ -1,4 +1,9 @@
 import random
+import card_manager
+
+
+def get_chances():
+    return card_manager.CHANCES
 
 
 def get_random_from(chances: dict) -> str:

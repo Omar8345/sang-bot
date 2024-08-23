@@ -103,8 +103,17 @@ model Reminder {
 }
 
 model Achievements {
-  id           Int       @id @default(autoincrement())
-  user_id      BigInt    @unique
-  hehet_spent  BigInt    @default(0)
-  user         User      @relation(fields: [user_id], references: [user_id])
+  id              Int             @id @default(autoincrement())
+  user_id         BigInt          @unique
+  achievements    Achievement[]
+  user            User            @relation(fields: [user_id], references: [user_id])
+}
+
+model Achievement {
+  id              Int             @id @default(autoincrement())
+  user_id         BigInt
+  name            String
+  progress        BigInt          @default(0)
+  collected       Int             @default(0)
+  achievements    Achievements    @relation(fields: [user_id], references: [user_id])
 }

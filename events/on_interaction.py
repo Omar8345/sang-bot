@@ -45,7 +45,7 @@ async def handle(interaction: discord.Interaction) -> None:
 
         await gacha.show_gacha_history(interaction, index = index, edit = True)
 
-    elif custom_id.startswith("inventory"):
+    elif custom_id.startswith("achievements"):
         _, index, action = custom_id.split("%")
         index = int(index) - 1
         if action == "next":

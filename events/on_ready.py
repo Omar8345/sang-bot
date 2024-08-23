@@ -14,11 +14,24 @@ async def update_leaderboard():
     await leaderboard.calculate_leaderboards()
 
 
+count = 0
 async def handle() -> None:
-    await db.connect()
-    await leaderboard.calculate_leaderboards()
+    global count
+    try:
+        await db.connect()
+    except Exception as e:
+        print(e)
 
-    update_leaderboard.start()
+    try:
+        await leaderboard.calculate_leaderboards()
+    except Exception as e:
+        print(e)
 
-    reminder_handler.reminder_loop.start()
-    await bot.tree.sync(guild=discord.Object(id=settings.guild_id))
+    if count == 0:
+        update_leaderboard.start()
+
+        reminder_handler.reminder_loop.start()
+
+        await bot.tree.sync(guild=discord.Object(id=settings.guild_id))
+
+    count += 1
