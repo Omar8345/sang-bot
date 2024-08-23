@@ -14,4 +14,4 @@ class User(BaseModel):
     buds: int = 0
     folders: list[Folder]
     gacha_info: GachaInfo
-    achievements: Achievements
+    achievements: Achievements = None
