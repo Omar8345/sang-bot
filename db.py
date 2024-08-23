@@ -496,9 +496,14 @@ async def update_achievement(user_id: int, achievement: str, new_data: dict) -> 
 
 @makeSure_userExists
 async def get_achievement(user_id: int, achievement: str, new_data = {}, include: dict = {}) -> c_achievements.Achievement:
-    return (await db.achievement.find_many(
+    result = await db.achievement.find_many(
         where = {
             "user_id": user_id,
             "name": achievement
         }
-    ))[0]
+    )
+
+    if result is None or len(result) == 0:
+        return None
+
+    return result[0]

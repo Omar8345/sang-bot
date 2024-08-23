@@ -75,6 +75,11 @@ async def get_achievement_progress(user: c_user.User, index_range: tuple[int, in
 
 async def add_to_progress(db: Any, user_id: int, achievement: str, amount: int) -> None:
     achievement_progress = await db.get_achievement(user_id, achievement)
+
+    if achievement_progress == None:
+        await db.get_achievements(user_id)
+
+    achievement_progress = await db.get_achievement(user_id, achievement)
     await db.update_achievement(
         user_id = user_id,
         achievement = achievement,
