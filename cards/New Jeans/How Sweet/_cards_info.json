@@ -1,6 +1,6 @@
 {
   "EHSDNE": {
-    "name": "Haerin",
+    "name": "DANIELLE",
     "rarity": "E"
   },
   "EHSHEN": {
@@ -8,15 +8,95 @@
     "rarity": "E"
   },
   "EHSHNI": {
-    "name": "Haerin",
+    "name": "HANNI",
     "rarity": "E"
   },
   "EHSHYN": {
-    "name": "Haerin",
+    "name": "HYEIN",
     "rarity": "E"
   },
   "EHSMNI": {
-    "name": "Haerin",
+    "name": "MINJI",
     "rarity": "E"
+  },
+  "DHSDNE": {
+    "name": "DANIELLE",
+    "rarity": "D"
+  },
+  "DHSHEN": {
+    "name": "Haerin",
+    "rarity": "D"
+  },
+  "DHSHNI": {
+    "name": "HANNI",
+    "rarity": "D"
+  },
+  "DHSHYN": {
+    "name": "HYEIN",
+    "rarity": "D"
+  },
+  "DHSMNI": {
+    "name": "MINJI",
+    "rarity": "D"
+  },
+  "CHSDNE": {
+    "name": "DANIELLE",
+    "rarity": "C"
+  },
+  "CHSHEN": {
+    "name": "Haerin",
+    "rarity": "C"
+  },
+  "CHSHNI": {
+    "name": "HANNI",
+    "rarity": "C"
+  },
+  "CHSHYN": {
+    "name": "HYEIN",
+    "rarity": "C"
+  },
+  "CHSMNI": {
+    "name": "MINJI",
+    "rarity": "C"
+  },
+  "BHSDNE": {
+    "name": "DANIELLE",
+    "rarity": "B"
+  },
+  "BHSHEN": {
+    "name": "Haerin",
+    "rarity": "B"
+  },
+  "BHSHNI": {
+    "name": "HANNI",
+    "rarity": "B"
+  },
+  "BHSHYN": {
+    "name": "HYEIN",
+    "rarity": "B"
+  },
+  "BHSMNI": {
+    "name": "MINJI",
+    "rarity": "B"
+  },
+  "AHSDNE": {
+    "name": "DANIELLE",
+    "rarity": "A"
+  },
+  "AHSHEN": {
+    "name": "Haerin",
+    "rarity": "A"
+  },
+  "AHSHNI": {
+    "name": "HANNI",
+    "rarity": "A"
+  },
+  "AHSHYN": {
+    "name": "HYEIN",
+    "rarity": "A"
+  },
+  "AHSMNI": {
+    "name": "MINJI",
+    "rarity": "A"
   }
 }

@@ -38,7 +38,7 @@ async def hehet_leaderboard(interaction: discord.Interaction):
 async def cards_leaderboard(
         interaction: discord.Interaction,
         group: card_info.card_groups_enum | None = None,
-        idol: card_info.idols_enum | None = None
+        idol: str | None = None
 ):
 
     title = "Cards Leaderboard"
@@ -46,7 +46,11 @@ async def cards_leaderboard(
         title = f"Group `{group.name}` Leaderboard"
 
     if idol is not None:
-        title = f"Idol `{idol.name}` Leaderboard"
+        idol = card_info._capitalize_names(idol)
+        if not hasattr(card_info.idols_enum, idol):
+            await interaction.response.send_message(f"Couldn't find {idol}")
+            return
+        title = f"Idol `{idol}` Leaderboard"
 
     embed = discord.Embed(
         title = title,
@@ -54,7 +58,7 @@ async def cards_leaderboard(
     )
 
     if idol is not None:
-        result = leaderboard.load_top_idol(idol.name)
+        result = leaderboard.load_top_idol(idol)
     elif group is not None:
         result = leaderboard.load_top_group(group.name)
     else:

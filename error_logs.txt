@@ -695,3 +695,23 @@ NameError: name 'Achievements' is not defined
                                 ^^^^^^^^^^
 SyntaxError: invalid syntax
 
+[2024-08-25 22:58:28] Traceback (most recent call last):
+  File "C:\Users\dia\PycharmProjects\sang_bot\bot.py", line 32, in load_commands
+    command_handler = importlib.import_module(f"{path.replace('/', '.').rstrip('.')}.{command[:-3]}")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 936, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1074, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1004, in source_to_code
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "C:\Users\dia\PycharmProjects\sang_bot\slash_commands\leaderboard_command.py", line 49
+    if idol not in card_info.idols_enum
+                                       ^
+SyntaxError: expected ':'
+

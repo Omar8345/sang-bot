@@ -1,0 +1,185 @@
+{
+  "ERBNYN":{
+    "name": "NAYEON",
+    "rarity": "E"
+  },
+  "ERBJGN":{
+    "name": "JEONGYEON",
+    "rarity": "E"
+  },
+  "ERBMMO": {
+    "name": "MOMO",
+    "rarity": "E"
+  },
+  "ERBSNA":{
+    "name": "SANA",
+    "rarity": "E"
+  },
+  "ERBJHO": {
+    "name": "JIHYO",
+    "rarity": "E"
+  },
+  "ERBMNA":{
+    "name": "MINA",
+    "rarity": "E"
+  },
+  "ERBDHN": {
+    "name": "DAHYUN",
+    "rarity": "E"
+  },
+  "ERBCYG":{
+    "name": "CHAEYOUNG",
+    "rarity": "E"
+  },
+  "ERBTYU": {
+    "name": "TZUYU",
+    "rarity": "E"
+  },
+
+  "DRBNYN":{
+    "name": "NAYEON",
+    "rarity": "D"
+  },
+  "DRBJGN":{
+    "name": "JEONGYEON",
+    "rarity": "D"
+  },
+  "DRBMMO": {
+    "name": "MOMO",
+    "rarity": "D"
+  },
+  "DRBSNA":{
+    "name": "SANA",
+    "rarity": "D"
+  },
+  "DRBJHO": {
+    "name": "JIHYO",
+    "rarity": "D"
+  },
+  "DRBMNA":{
+    "name": "MINA",
+    "rarity": "D"
+  },
+  "DRBDHN": {
+    "name": "DAHYUN",
+    "rarity": "D"
+  },
+  "DRBCYG":{
+    "name": "CHAEYOUNG",
+    "rarity": "D"
+  },
+  "DRBTYU": {
+    "name": "TZUYU",
+    "rarity": "D"
+  },
+
+  "CRBNYN":{
+    "name": "NAYEON",
+    "rarity": "C"
+  },
+  "CRBJGN":{
+    "name": "JEONGYEON",
+    "rarity": "C"
+  },
+  "CRBMMO": {
+    "name": "MOMO",
+    "rarity": "C"
+  },
+  "CRBSNA":{
+    "name": "SANA",
+    "rarity": "C"
+  },
+  "CRBJHO": {
+    "name": "JIHYO",
+    "rarity": "C"
+  },
+  "CRBMNA":{
+    "name": "MINA",
+    "rarity": "C"
+  },
+  "CRBDHN": {
+    "name": "DAHYUN",
+    "rarity": "C"
+  },
+  "CRBCYG":{
+    "name": "CHAEYOUNG",
+    "rarity": "C"
+  },
+  "CRBTYU": {
+    "name": "TZUYU",
+    "rarity": "C"
+  },
+
+  "BRBNYN":{
+    "name": "NAYEON",
+    "rarity": "B"
+  },
+  "BRBJGN":{
+    "name": "JEONGYEON",
+    "rarity": "B"
+  },
+  "BRBMMO": {
+    "name": "MOMO",
+    "rarity": "B"
+  },
+  "BRBSNA":{
+    "name": "SANA",
+    "rarity": "B"
+  },
+  "BRBJHO": {
+    "name": "JIHYO",
+    "rarity": "B"
+  },
+  "BRBMNA":{
+    "name": "MINA",
+    "rarity": "B"
+  },
+  "BRBDHN": {
+    "name": "DAHYUN",
+    "rarity": "B"
+  },
+  "BRBCYG":{
+    "name": "CHAEYOUNG",
+    "rarity": "B"
+  },
+  "BRBTYU": {
+    "name": "TZUYU",
+    "rarity": "B"
+  },
+  "ARBNYN":{
+    "name": "NAYEON",
+    "rarity": "A"
+  },
+  "ARBJGN":{
+    "name": "JEONGYEON",
+    "rarity": "A"
+  },
+  "ARBMMO": {
+    "name": "MOMO",
+    "rarity": "A"
+  },
+  "ARBSNA":{
+    "name": "SANA",
+    "rarity": "A"
+  },
+  "ARBJHO": {
+    "name": "JIHYO",
+    "rarity": "A"
+  },
+  "ARBMNA":{
+    "name": "MINA",
+    "rarity": "A"
+  },
+  "ARBDHN": {
+    "name": "DAHYUN",
+    "rarity": "A"
+  },
+  "ARBCYG":{
+    "name": "CHAEYOUNG",
+    "rarity": "A"
+  },
+  "ARBTYU": {
+    "name": "TZUYU",
+    "rarity": "A"
+  }
+}

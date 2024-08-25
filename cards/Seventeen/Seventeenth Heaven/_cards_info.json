@@ -51,6 +51,58 @@
     "name": "Woozi",
     "rarity": "A"
   },
+  "BSHDKK": {
+    "name": "DK",
+    "rarity": "B"
+  },
+  "BSHDNO": {
+    "name": "Dino",
+    "rarity": "B"
+  },
+  "BSHHSI": {
+    "name": "Hoshi",
+    "rarity": "B"
+  },
+  "BSHJGN": {
+    "name": "Jeonghan",
+    "rarity": "B"
+  },
+  "BSHJSA": {
+    "name": "Joshua",
+    "rarity": "B"
+  },
+  "BSHJUN": {
+    "name": "Jun",
+    "rarity": "B"
+  },
+  "BSHMGU": {
+    "name": "Mingyu",
+    "rarity": "B"
+  },
+  "BSHSCP": {
+    "name": "S.Coups",
+    "rarity": "B"
+  },
+  "BSHSGN": {
+    "name": "Seungkwan",
+    "rarity": "B"
+  },
+  "BSHTE8": {
+    "name": "The8",
+    "rarity": "B"
+  },
+  "BSHVRN": {
+    "name": "Vernon",
+    "rarity": "B"
+  },
+  "BSHWNO": {
+    "name": "Wonwoo",
+    "rarity": "B"
+  },
+  "BSHWZI": {
+    "name": "Woozi",
+    "rarity": "B"
+  },
   "CSHDKK": {
     "name": "DK",
     "rarity": "C"
