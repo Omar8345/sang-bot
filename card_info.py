@@ -6,7 +6,7 @@ import os
 from functools import reduce
 
 
-all_upper_case = ["DK", "BTS", "RM"]
+all_upper_case = ["DK", "BTS", "RM", "(G)I-DLE"]
 all_lower_case = []
 
 CARD_DIRECTORY = "cards"
@@ -106,7 +106,4 @@ card_groups_enum = enum.Enum(
     {group: i for i, group in enumerate(list({card.group for card in card_info.values()}))}
 )
 
-idols_enum = enum.Enum(
-    "IdolsEnum",
-    {name: i for i, name in enumerate(list({card.name for card in card_info.values()}))}
-)
+idols_enum = {card.name for card in card_info.values()}

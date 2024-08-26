@@ -130,8 +130,8 @@ async def calculate_cards_leaderboard():
 
     for idol in card_info.idols_enum:
         await generate_leaderboard_based_on_every_user(
-            criteria = get_idol_count(idol.name),
-            name = f"idol_{idol.name}"
+            criteria = get_idol_count(idol),
+            name = f"idol_{idol}"
         )
 
 
