@@ -94,8 +94,10 @@ def get_group_count(group):
 
 def get_idol_count(idol):
     async def not_a_wrapper_idk_what_this_is(user: c_user.User):
+
         amount = 0
         for card in user.cards:
+            if card.card_id not in card_info.card_info: continue
             if card_info.card_info[card.card_id].name.lower() == idol.lower():
                 amount += card.amount
 

@@ -42,6 +42,7 @@ async def search(interaction: discord.Interaction, card: str):
         title = f"Searching…",
         description = \
             f"Idol: {card_information.name}\n"
+            f"Group: {card_information.group}\n"
             f"Era: {card_information.era}\n"
             f"Rarity: {settings.tier_emojis[rarity]}\n"
             f"Existing copies: {card_count:,}\n"

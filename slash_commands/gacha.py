@@ -46,7 +46,8 @@ async def gacha(interaction: discord.Interaction, gacha_name: gacha_types, group
     )
 
     if user.buds < amount:
-        await interaction.response.send_message(f"You don't have this many buds")
+        plural = "s" if amount - user.buds > 1 else ""
+        await interaction.response.send_message(f"You're missing {amount - user.buds} bud{plural}")
         return
 
     if amount <= 0:
@@ -104,7 +105,7 @@ async def gacha(interaction: discord.Interaction, gacha_name: gacha_types, group
         user_id,
         new_data = {
             "balance": user.balance + hehet,
-            "buds": user.buds + buds
+            "buds": user.buds + buds - amount
         }
     )
 

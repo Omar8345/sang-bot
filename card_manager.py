@@ -48,13 +48,6 @@ def find_card(user: c_user.User, card: str) -> c_card.Card | None:
     return None
 
 
-def add_cards(user: c_user.User, card: str, amount: int = 1) -> None:
-    user.cards.append({
-        "user_id": user.user_id,
-        "card_id": card
-    })
-
-
 def count_cards(user: c_user.User) -> int:
     amount = 0
     for card in user.cards:
@@ -69,4 +62,8 @@ def load_card_info():
 
 def get_card_image_from_id(card_id: str) -> str:
     info = card_info.card_info[card_id.upper()]
-    return os.path.join(CARD_DIRECTORY, info.group, info.era, f"{card_id.upper()}.png")
+    path = os.path.join(CARD_DIRECTORY, info.group, info.era, f"{card_id.upper()}.png")
+    if os.path.exists(path):
+        return path
+    else:
+        return os.path.join("assets", "card_not_found.png")

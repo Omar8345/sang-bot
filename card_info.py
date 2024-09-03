@@ -10,7 +10,7 @@ all_upper_case = ["DK", "BTS", "RM", "(G)I-DLE"]
 all_lower_case = []
 
 CARD_DIRECTORY = "cards"
-GACHA_DIRECTORY_NAME = "Gacha"
+gacha_groups = ["floral event"] # lowercase
 
 class CardInfo(BaseModel):
     name: str
@@ -44,6 +44,7 @@ def load_cards():
         if not os.path.isdir(group_path): continue
         for era in os.listdir(group_path):
             era_path = os.path.join(group_path, era)
+            if not os.path.isdir(era_path): continue
 
             for card in os.listdir(era_path):
                 if not card.endswith(".png"):
@@ -64,6 +65,7 @@ for group in os.listdir(CARD_DIRECTORY):
     if not os.path.isdir(group_path): continue
     for era in os.listdir(group_path):
         era_path = os.path.join(group_path, era)
+        if not os.path.isdir(era_path): continue
 
         era_info_path = os.path.join(era_path, "_cards_info.json")
         with open(era_info_path) as f:
@@ -81,13 +83,14 @@ for group in os.listdir(CARD_DIRECTORY):
                 "era": era
             }
 
-            if group.lower() == GACHA_DIRECTORY_NAME.lower():
+            if group.lower() in gacha_groups:
                 if era not in gacha_only_cards_by_group:
                     gacha_only_cards_by_group[era] = [card_id]
                 else:
                     gacha_only_cards_by_group[era].append(card_id)
 
 gacha_only_cards = reduce((lambda a, b: a + b), gacha_only_cards_by_group.values(), [])
+
 cards = {_id.upper(): {field: _capitalize_names(value) for field, value in data.items()} for _id, data in cards.items()}
 
 card_info: dict[str, CardInfo] = {card_id: CardInfo(**info) for card_id, info in cards.items()}
@@ -102,6 +105,16 @@ for card_id, card in non_gacha_cards_info.items():
     group_info[card.group].append(card_id)
 
 card_groups_enum = enum.Enum(
+    "CardGroups",
+    {group: i for i, group in enumerate(list({card.group for card in card_info.values()}))}
+)
+
+card_era_enum = enum.Enum(
+    "CardGroups",
+    {era: i for i, era in enumerate(list({card.era for card in card_info.values()}))}
+)
+
+non_gacha_cards_enum = enum.Enum(
     "CardGroups",
     {group: i for i, group in enumerate(list({card.group for card in card_info.values()}))}
 )
