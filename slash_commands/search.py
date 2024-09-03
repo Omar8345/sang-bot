@@ -20,7 +20,7 @@ async def search(interaction: discord.Interaction, card: str):
         return
 
     card_information = card_info.card_info[card]
-    rarity = card[0].upper()
+    rarity = card_info.card_info[card.upper()].rarity
 
     user = await db.get_user(
         user_id = interaction.user.id,

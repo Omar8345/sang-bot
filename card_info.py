@@ -71,6 +71,10 @@ for group in os.listdir(CARD_DIRECTORY):
         with open(era_info_path) as f:
             era_info = json.load(f)
 
+        era_info_backup = os.path.join(era_path, "_cards_info_backup.json")
+        with open(era_info_backup, "w") as f:
+            json.dump(era_info, f)
+
         for card in os.listdir(era_path):
             if not card.endswith(".png"):
                 continue

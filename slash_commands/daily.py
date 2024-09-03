@@ -29,7 +29,7 @@ async def daily(interaction: discord.Interaction):
         chances = probability_stuff.get_chances()
 
         card_id = probability_stuff.get_random_card(chances, card_info.non_gacha_cards_id).upper()
-        card_rarity = card_id[0]
+        card_rarity = card_info.card_info[card_id.upper()].rarity
 
         await db.add_cards(
             user_id = user_id,

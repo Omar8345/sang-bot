@@ -1,4 +1,6 @@
 import random
+
+import card_info
 import card_manager
 
 
@@ -21,12 +23,12 @@ def get_random_from(chances: dict) -> str:
 def find_rarity(rarity: str, cards: list[str]):
     rarity = rarity.upper()
     for card in cards:
-        if rarity == card[0].upper():
+        if rarity == card_info.card_info[card.upper()].rarity:
             return card.upper()
 
 
 def get_random_card(chances: dict[str, float], cards: list[str]) -> str:
-    rarities = {card[0].upper() for card in cards}
+    rarities = {card_info.card_info[card.upper()].rarity for card in cards}
     chances = {rarity: chance for rarity, chance in chances.items() if rarity in rarities}
     limit = sum(chances.values())
 

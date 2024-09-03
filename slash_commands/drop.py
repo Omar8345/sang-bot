@@ -31,7 +31,7 @@ async def drop(interaction: discord.Interaction):
 
         chances = card_manager.get_chances()
         card = probability_stuff.get_random_card(chances, card_info.non_gacha_cards_id).upper()
-        rarity = card[0]
+        rarity = card_info.card_info[card.upper()].rarity
 
         if card is not None:
             await db.add_cards(
