@@ -6,7 +6,7 @@ import os
 from functools import reduce
 
 
-all_upper_case = ["DK", "BTS", "RM", "(G)I-DLE"]
+all_upper_case = ["DK", "BTS", "RM", "(G)I-DLE", "SS"]
 all_lower_case = []
 
 CARD_DIRECTORY = "cards"
