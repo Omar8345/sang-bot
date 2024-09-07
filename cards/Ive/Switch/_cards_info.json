@@ -1,10 +1,98 @@
 {
-  "DSTYJN": {
+  "ESCYJN": {
+    "name": "Yujin",
+    "rarity": "E"
+  },
+  "ESCGEL": {
+    "name": "GAEUL",
+    "rarity": "E"
+  },
+  "ESCREI": {
+    "name": "REI",
+    "rarity": "E"
+  },
+  "ESCWNG": {
+    "name": "WONYOUNG",
+    "rarity": "E"
+  },
+  "ESCLIZ": {
+    "name": "LIZ",
+    "rarity": "E"
+  },
+  "ESCLEO": {
+    "name": "LEESO",
+    "rarity": "E"
+  },
+  "DSCYJN": {
     "name": "Yujin",
     "rarity": "D"
   },
-  "YES": {
-    "name": "Yes",
+  "DSCGEL": {
+    "name": "GAEUL",
+    "rarity": "D"
+  },
+  "DSCREI": {
+    "name": "REI",
+    "rarity": "D"
+  },
+  "DSCWNG": {
+    "name": "WONYOUNG",
+    "rarity": "D"
+  },
+  "DSCLIZ": {
+    "name": "LIZ",
+    "rarity": "D"
+  },
+  "DSCLEO": {
+    "name": "LEESO",
+    "rarity": "D"
+  },
+  "BSCYJN": {
+    "name": "Yujin",
+    "rarity": "B"
+  },
+  "BSCGEL": {
+    "name": "GAEUL",
+    "rarity": "B"
+  },
+  "BSCREI": {
+    "name": "REI",
+    "rarity": "B"
+  },
+  "BSCWNG": {
+    "name": "WONYOUNG",
+    "rarity": "B"
+  },
+  "BSCLIZ": {
+    "name": "LIZ",
+    "rarity": "B"
+  },
+  "BSCLEO": {
+    "name": "LEESO",
+    "rarity": "B"
+  },
+  "ASCYJN": {
+    "name": "Yujin",
+    "rarity": "A"
+  },
+  "ASCGEL": {
+    "name": "GAEUL",
+    "rarity": "A"
+  },
+  "ASCREI": {
+    "name": "REI",
+    "rarity": "A"
+  },
+  "ASCWNG": {
+    "name": "WONYOUNG",
+    "rarity": "A"
+  },
+  "ASCLIZ": {
+    "name": "LIZ",
+    "rarity": "A"
+  },
+  "ASCLEO": {
+    "name": "LEESO",
     "rarity": "A"
   }
 }
