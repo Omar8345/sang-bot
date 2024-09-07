@@ -45,6 +45,10 @@ def makeSure_userExists(func):
                     "folders": True
                 }
             )
+
+            await get_shop(
+                user_id
+            )
             await get_gacha_info(user_id)
 
         return await func(*args, **kwargs)

@@ -9,9 +9,7 @@ import c_card
 import os
 import card_info
 import card_manager
-
-
-DAILY_COOLDOWN_SECONDS = 24 * 3_600
+from c_cooldown import DAILY_COOLDOWN_SECONDS
 DAILY_HEHET_REWARD = 25_000
 
 @tree.command(name="daily", description="claim free daily rewards", guild=discord.Object(id = settings.guild_id))

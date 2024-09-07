@@ -10,13 +10,8 @@ import db
 import os
 import card_manager
 from typing import Any
+from c_cooldown import DROP_COOLDOWN_SECONDS
 
-
-DROP_COOLDOWN_SECONDS = 120
-
-
-def get_chances():
-    return CHANCES
 
 
 @tree.command(name="drop", description="get a random card", guild=discord.Object(id = settings.guild_id))

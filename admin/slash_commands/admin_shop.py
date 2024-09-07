@@ -1,14 +1,13 @@
 import uuid
 import discord
-import prisma
 import bot
+import card_info
 import card_manager
 import db
 from bot import tree, bot
 from settings import settings
 from typing import Literal
 import os
-import admin.slash_commands.admin_gift as admin_gift
 import check_permissions
 
 
@@ -59,13 +58,13 @@ async def admin_shop(
         return
 
 
-    existing_cards = admin_gift.load_cards()
+    existing_cards = card_info.all_cards
     if card not in existing_cards:
         await interaction.response.send_message(f"Card `{card}` doesn't exist")
         return
 
     await db.add_to_shop(
-        user_id = bot.user.id,
+        user_id = -1,
         card_id = card,
         amount = amount,
         price = price

@@ -50,6 +50,8 @@ async def display_shop(
     else:
         user_id = user.id
         username = user.name
+    if user_id == bot.bot.user.id:
+        user_id = -1
 
 
     shop = await db.get_shop(
@@ -65,7 +67,7 @@ async def display_shop(
         colour = settings.embed_color
     )
 
-    if user_id == bot.bot.user.id:
+    if user_id == -1:
         embed.add_field(
             name = f"buds - {settings.bud_price:,} {settings.hehet_emoji}",
             value = f"id: buds\namount: infinite"

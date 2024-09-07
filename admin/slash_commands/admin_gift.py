@@ -1,19 +1,15 @@
 import discord
 import c_card
+import card_info
 import db
 from bot import tree
 from settings import settings
 import check_permissions
+import os
+
 
 CARD_DIRECTORY = "cards"
 
-def load_cards():
-    cards = [
-        # removes file extension
-        i.split('.')[0] \
-        for i in os.listdir(CARD_DIRECTORY)
-    ]
-    return cards
 
 INTEGER_LIMIT = int('1' * 31, 2)
 @tree.command(name="admin_gift", description="create new cards", guild=discord.Object(id = settings.guild_id))
@@ -38,16 +34,9 @@ async def admin_gift(interaction: discord.Interaction, user: discord.Member, car
         await interaction.response.send_message(f"Amount is too big (>{INTEGER_LIMIT:,})")
         return
 
-    if card.upper() not in load_cards():
+    if card.upper() not in card_info.all_cards:
         await interaction.response.send_message(f"Card `{card}` doesn't exist")
         return
-
-    other_user_data = await db.get_user(
-        other_user_id,
-        include = {
-            "cards": True
-        }
-    )
 
     embed = discord.Embed(
         title = "Transfer",

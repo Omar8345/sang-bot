@@ -1,9 +1,7 @@
 from discord.ext import tasks
 from discord import utils
 import bot
-from slash_commands.drop import DROP_COOLDOWN_SECONDS
-from slash_commands.daily import DAILY_COOLDOWN_SECONDS
-from slash_commands.work import WORK_COOLDOWN_SECONDS
+from c_cooldown import *
 import db
 import time
 

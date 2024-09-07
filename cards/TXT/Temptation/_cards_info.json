@@ -1,0 +1,102 @@
+{
+  "ETPSBN":{
+    "name": "SOOBIN",
+    "rarity": "E"
+  },
+  "ETPYJN":{
+    "name": "YEONJUN",
+    "rarity": "E"
+  },
+  "ETPBGY":{
+    "name": "BEOMGYU",
+    "rarity": "E"
+  },
+  "ETPTYN":{
+    "name": "TAEHYUN",
+    "rarity": "E"
+  },
+  "ETPHNK": {
+    "name": "HUENING KAI",
+    "rarity": "E"
+  },
+  "DTPSBN":{
+    "name": "SOOBIN",
+    "rarity": "D"
+  },
+  "DTPYJN":{
+    "name": "YEONJUN",
+    "rarity": "D"
+  },
+  "DTPBGY":{
+    "name": "BEOMGYU",
+    "rarity": "D"
+  },
+  "DTPTYN":{
+    "name": "TAEHYUN",
+    "rarity": "D"
+  },
+  "DTPHNK": {
+    "name": "HUENING KAI",
+    "rarity": "D"
+  },
+  "CTPSBN":{
+    "name": "SOOBIN",
+    "rarity": "C"
+  },
+  "CTPYJN":{
+    "name": "YEONJUN",
+    "rarity": "C"
+  },
+  "CTPBGY":{
+    "name": "BEOMGYU",
+    "rarity": "C"
+  },
+  "CTPTYN":{
+    "name": "TAEHYUN",
+    "rarity": "C"
+  },
+  "CTPHNK": {
+    "name": "HUENING KAI",
+    "rarity": "C"
+  },
+  "BTPSBN":{
+    "name": "SOOBIN",
+    "rarity": "B"
+  },
+  "BTPYJN":{
+    "name": "YEONJUN",
+    "rarity": "B"
+  },
+  "BTPBGY":{
+    "name": "BEOMGYU",
+    "rarity": "B"
+  },
+  "BTPTYN":{
+    "name": "TAEHYUN",
+    "rarity": "B"
+  },
+  "BTPHNK": {
+    "name": "HUENING KAI",
+    "rarity": "B"
+  },
+  "ATPSBN":{
+    "name": "SOOBIN",
+    "rarity": "A"
+  },
+  "ATPYJN":{
+    "name": "YEONJUN",
+    "rarity": "A"
+  },
+  "ATPBGY":{
+    "name": "BEOMGYU",
+    "rarity": "A"
+  },
+  "ATPTYN":{
+    "name": "TAEHYUN",
+    "rarity": "A"
+  },
+  "ATPHNK": {
+    "name": "HUENING KAI",
+    "rarity": "A"
+  }
+}

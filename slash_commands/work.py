@@ -4,9 +4,7 @@ from settings import settings
 import db
 import time
 import achievements_manager
-
-
-WORK_COOLDOWN_SECONDS = 3_600
+from c_cooldown import WORK_COOLDOWN_SECONDS
 PAYMENT = 1_000 # how much money the user gets everytime they work
 
 @tree.command(name="work", description="gain hehet by working", guild=discord.Object(id = settings.guild_id))

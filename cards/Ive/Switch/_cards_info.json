@@ -47,6 +47,30 @@
     "name": "LEESO",
     "rarity": "D"
   },
+  "CSCYJN": {
+    "name": "Yujin",
+    "rarity": "C"
+  },
+  "CSCGEL": {
+    "name": "GAEUL",
+    "rarity": "C"
+  },
+  "CSCREI": {
+    "name": "REI",
+    "rarity": "C"
+  },
+  "CSCWNG": {
+    "name": "WONYOUNG",
+    "rarity": "C"
+  },
+  "CSCLIZ": {
+    "name": "LIZ",
+    "rarity": "C"
+  },
+  "CSCLEO": {
+    "name": "LEESO",
+    "rarity": "C"
+  },
   "BSCYJN": {
     "name": "Yujin",
     "rarity": "B"

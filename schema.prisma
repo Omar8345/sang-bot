@@ -37,7 +37,7 @@ model Card {
   user_id    BigInt
   amount     Int       @default(1)
   card_id    String
-  user       User      @relation(fields: [user_id], references: [user_id])
+  user       User?     @relation(fields: [user_id], references: [user_id])
 }
 
 model Profile {
@@ -45,7 +45,7 @@ model Profile {
   user_id    BigInt    @unique
   favorite   String    @default("none")
   bio        String    @default("")
-  user       User      @relation(fields: [user_id], references: [user_id])
+  user       User?     @relation(fields: [user_id], references: [user_id])
 }
 
 model Shop {
@@ -54,17 +54,17 @@ model Shop {
   bio        String    @default("")
   image      String    @default("none")
   cards      SoldCards[]
-  user       User      @relation(fields: [user_id], references: [user_id])
+  user       User?     @relation(fields: [user_id], references: [user_id])
 }
 
 model SoldCards {
   id         Int       @id @default(autoincrement())
   item_id    BigInt    @unique @default(autoincrement())
-  user_id    BigInt
+  user_id    BigInt?
   amount     Int
   price      Int
   card_id    String
-  shop       Shop      @relation(fields: [user_id], references: [user_id])
+  shop       Shop?     @relation(fields: [user_id], references: [user_id])
 }
 
 model Folder {
@@ -72,7 +72,7 @@ model Folder {
   user_id    BigInt
   name       String
   cards      String
-  user       User      @relation(fields: [user_id], references: [user_id])
+  user       User?     @relation(fields: [user_id], references: [user_id])
 }
 
 model GachaInfo {
@@ -81,7 +81,7 @@ model GachaInfo {
   pity            Int               @default(60)
   selected_card   String            @default("none")
   chance_increase Int               @default(0)
-  user            User              @relation(fields: [user_id], references: [user_id])
+  user            User?             @relation(fields: [user_id], references: [user_id])
   gacha_history   GachaHistory[]
 }
 
@@ -99,7 +99,7 @@ model Reminder {
   daily      Int       @default(0)
   work       Int       @default(0)
   drop       Int       @default(0)
-  user       User      @relation(fields: [user_id], references: [user_id])
+  user       User?     @relation(fields: [user_id], references: [user_id])
 }
 
 model Achievements {
@@ -115,5 +115,5 @@ model Achievement {
   name            String
   progress        BigInt          @default(0)
   collected       Int             @default(0)
-  achievements    Achievements    @relation(fields: [user_id], references: [user_id])
+  achievements    Achievements?   @relation(fields: [user_id], references: [user_id])
 }
