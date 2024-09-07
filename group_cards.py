@@ -7,11 +7,11 @@ import card_manager
 TEXT_COLOR = (255, 255, 255)
 
 
-CARD_WIDTH = 500 // 3
+CARD_WIDTH = 500 // 2
 CARD_HEIGHT = int(CARD_WIDTH / 0.79945)
-GAP = 50 // 3
-FONT_SIZE = 50 // 3
-LIST_GAP = 10 // 3
+GAP = 50 // 2
+FONT_SIZE = 50 // 2
+LIST_GAP = 10 // 2
 
 CARD_IMAGES_DIRECTORY = "cards"
 ASSET_DIRECTORY = "assets"

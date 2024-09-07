@@ -79,9 +79,14 @@ async def display_shop(
         amount = sold_card.amount
         price = sold_card.price
 
+        if shop.user_id == -1 and amount < 0:
+            amount = "infinite"
+        else:
+            amount = f"{amount:,}"
+
         embed.add_field(
             name = f"`{card_id}` - {price:,} {settings.hehet_emoji}",
-            value = f"id: {id}\namount: {amount:,}"
+            value = f"id: {id}\namount: {amount}"
         )
 
     kwargs = {

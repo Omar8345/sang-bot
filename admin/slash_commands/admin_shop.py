@@ -41,10 +41,6 @@ async def admin_shop(
         await interaction.response.send_message(f"You don't have permissions to use this command")
         return
 
-    if amount <= 0:
-        await interaction.response.send_message("Amount must be bigger than 0")
-        return
-
     if amount >= INTEGER_LIMIT:
         await interaction.response.send_message(f"Amount is too big (>{INTEGER_LIMIT:,})")
         return
@@ -70,7 +66,12 @@ async def admin_shop(
         price = price
     )
 
-    await interaction.response.send_message(f"Added {amount:,} `{card}` for {price:,} each to the bot shop")
+    if amount < 0:
+        amount = "infinite"
+    else:
+        amount = f"{amount:,}"
+
+    await interaction.response.send_message(f"Added {amount} `{card}` for {price:,} each to the bot shop")
 
 
 @tree.command(name="admin_shop_remove", description="remove cards from the bot shop", guild=discord.Object(id = settings.guild_id))

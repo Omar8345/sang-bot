@@ -32,15 +32,16 @@ async def buy(interaction: discord.Interaction, item_id: str, amount: int):
 
     card = await db.get_sold_card(item_id)
 
-    if card.user_id == user_id:
-        await interaction.response.send_message("You can't buy from yourself")
-        return
 
     if card is None:
         bad_id = True
 
     if bad_id:
         await interaction.response.send_message(f"ID `{item_id}` doesn't exist")
+        return
+    
+    if card.user_id == user_id:
+        await interaction.response.send_message("You can't buy from yourself")
         return
 
     price = card.price * amount
@@ -51,8 +52,9 @@ async def buy(interaction: discord.Interaction, item_id: str, amount: int):
         return
 
     if amount > card.amount:
-        await interaction.response.send_message(f"You can't buy {amount} of this card, there's only {card.amount}")
-        return
+        if not (card.user_id == -1 and card.amount < 0):
+            await interaction.response.send_message(f"You can't buy {amount} of this card, there's only {card.amount}")
+            return
 
     await db.update_user(
         user_id,
@@ -76,12 +78,13 @@ async def buy(interaction: discord.Interaction, item_id: str, amount: int):
         amount = amount
     )
 
-    await db.update_sold_cards(
-        item_id,
-        new_data = {
-            "amount": card.amount - amount
-        }
-    )
+    if not (card.user_id == -1 and card.amount < 0):
+        await db.update_sold_cards(
+            item_id,
+            new_data = {
+                "amount": card.amount - amount
+            }
+        )
 
     await achievements_manager.add_to_progress(db, user_id, achievements_manager.HEHET_SPENT, price)
     await interaction.response.send_message(f"Successfully bought {amount:,} cards for {price:,} {settings.hehet_emoji}")

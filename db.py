@@ -342,7 +342,7 @@ async def update_sold_cards(card_id: int, new_data: dict, include: dict = {}):
         include = include
     )
 
-    if new_card.amount <= 0:
+    if new_card.amount <= 0 and not (new_card.user_id == -1 and new_card.amount != 0):
         await db.soldcards.delete(where = { "item_id" : card_id })
 
 
