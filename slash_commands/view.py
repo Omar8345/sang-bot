@@ -41,6 +41,9 @@ async def search(interaction: discord.Interaction, card: str):
         description = \
             f"ID: {card}\n"
             f"Idol: {card_info.card_info[card].name}\n"
+            f"Group: {card_information.group}\n"
+            f"Era: {card_information.era}\n"
+            f"Rarity: {settings.tier_emojis[rarity]}\n"
             f"Copies owned: {cards_owned:,}",
         colour=settings.embed_color,
     )
