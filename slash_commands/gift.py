@@ -81,4 +81,4 @@ async def gift(interaction: discord.Interaction, user: discord.Member, cards: st
 
     formatted_cards = ", ".join([f"{amount} {card}" for amount, card in cards])
     embed.description = f"Successfully transferred `{formatted_cards}` to <@{other_user_id}>"
-    await interaction.response.send_message(embed=embed)
+    await interaction.response.send_message(content = f"<@{other_user_id}>", embed=embed)

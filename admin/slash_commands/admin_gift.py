@@ -8,9 +8,6 @@ import check_permissions
 import os
 
 
-CARD_DIRECTORY = "cards"
-
-
 INTEGER_LIMIT = int('1' * 31, 2)
 @tree.command(name="admin_gift", description="create new cards", guild=discord.Object(id = settings.guild_id))
 async def admin_gift(interaction: discord.Interaction, user: discord.Member, card: str, amount: int = 1):
@@ -53,4 +50,4 @@ async def admin_gift(interaction: discord.Interaction, user: discord.Member, car
     )
 
     embed.description = f"Gave {amount:,} `{card}`'s to <@{other_user_id}>"
-    await interaction.response.send_message(embed=embed, silent=True)
+    await interaction.response.send_message(content = f"<@{other_user_id}>", embed=embed, silent=True)

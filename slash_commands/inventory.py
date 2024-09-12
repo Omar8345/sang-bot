@@ -15,10 +15,10 @@ import math
 
 CARDS_PER_PAGE = 8
 
-def hash_card(card: c_card.Card) -> int:
-    return reduce(lambda a, b: a << 5 | (ord(b) - ord("a")), card.card_id.lower(), 0)
-
 rank_order = {
+    "UR": -3,
+    "SSR": -2,
+    "SS": -1,
     "S": 0,
     "A": 1,
     "B": 2,
@@ -51,11 +51,11 @@ async def show_inventory(interaction: discord.Interaction, page: int = 1, edit: 
     )
 
     user_data.cards.sort(
-        key = (lambda x: rank_order[x.card_id[0].upper()])
+        key = (lambda x: rank_order[card_info.card_info[x.card_id].rarity])
     )
 
     for card in user_data.cards[page * CARDS_PER_PAGE: min(len(user_data.cards), (page + 1) * CARDS_PER_PAGE)]:
-        tier = card.card_id[0].upper()
+        tier = card_info.card_info[card.card_id].rarity
         info = card_info.card_info[card.card_id.upper()]
         name, group, era = info.name, info.group, info.era
 
@@ -114,7 +114,7 @@ async def show_inventory_slot(interaction: discord.Interaction, index: int = 0, 
         colour = settings.embed_color
     )
 
-    cards: list[c_card.Card] = list(zip([hash_card(card) for card in user.cards], user.cards))
+    cards: list[c_card.Card] = list(zip([card for card in user.cards], user.cards))
 
     if index >= len(cards) or index < 0:
         await interaction.response.defer()

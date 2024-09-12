@@ -78,7 +78,7 @@ async def admin_add(interaction: discord.Interaction, rarity: rarities, id: str,
         card_info.group_info[group] = []
     card_info.group_info[group].append(id)
 
-    card_info.load_card_info()
+    card_info.all_cards.append(id)
     img.save(os.path.join(CARD_DIRECTORY, group, era, f"{id}.png"))
 
 
