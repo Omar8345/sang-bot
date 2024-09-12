@@ -15,7 +15,7 @@ async def update_leaderboard():
     await leaderboard.calculate_leaderboards()
 
 
-@tasks.loop(seconds = 2)
+@tasks.loop(minutes = 5)
 async def update_cards():
     card_info.load_card_info()
 

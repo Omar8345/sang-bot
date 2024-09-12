@@ -13,15 +13,15 @@ import json
 
 
 CARD_DIRECTORY = "cards"
-rarities = Literal["A", "B", "C", "D", "E"]
+rarities = Literal["A", "B", "C", "D", "E", "S", "SS", "SSR", "UR"]
 @tree.command(name="add_card", description="create a new card for the bot", guild=discord.Object(id = settings.guild_id))
-async def admin_add(interaction: discord.Interaction, rarity: rarities, id: str, group: card_info.card_groups_enum, era: card_info.card_era_enum, card: discord.Attachment, name: str):
+async def admin_add(interaction: discord.Interaction, rarity: rarities, id: str, group: str, era: str, card: discord.Attachment, name: str):
     user_id = interaction.user.id
 
     name = name.capitalize()
     id = id.upper()
-    group = card_info._capitalize_names(group.name)
-    era = card_info._capitalize_names(era.name)
+    group = card_info._capitalize_names(group)
+    era = card_info._capitalize_names(era)
 
     if not check_permissions.has_permissions(
         user_id,
@@ -30,14 +30,15 @@ async def admin_add(interaction: discord.Interaction, rarity: rarities, id: str,
         await interaction.response.send_message(f"You don't have permissions to use this command")
         return
 
-    await interaction.response.send_message(f"this command still doesnt work, huge issue is that both bots run separately and they expect to only have to load some data once")
-    return
-
 
     path = os.path.join(CARD_DIRECTORY, group, era)
+    group_path = os.path.join(CARD_DIRECTORY, group)
+
+    if not os.path.exists(group_path):
+        os.mkdir(group_path)
+
     if not os.path.exists(path):
-        await interaction.response.send_message(f"Couldn't find the folder for this group and era, make sure they're correct")
-        return
+        os.mkdir(path)
 
     await interaction.response.defer()
     card_image = BytesIO()
@@ -56,8 +57,11 @@ async def admin_add(interaction: discord.Interaction, rarity: rarities, id: str,
         "rarity": rarity
     }
 
-    with open(os.path.join(path, "_cards_info.json"), "r") as f:
-        info = json.load(f)
+    if os.path.exists(os.path.join(path, "_cards_info.json")):
+        with open(os.path.join(path, "_cards_info.json"), "r") as f:
+            info = json.load(f)
+    else:
+        info = {}
 
     info[id] = {
         "name": name,
@@ -69,6 +73,9 @@ async def admin_add(interaction: discord.Interaction, rarity: rarities, id: str,
 
     card_info.card_info[id] = card_info.CardInfo(**card_info.cards[id])
     card_info.non_gacha_cards_id.append(id)
+
+    if group not in card_info.group_info:
+        card_info.group_info[group] = []
     card_info.group_info[group].append(id)
 
     img.save(os.path.join(CARD_DIRECTORY, group, era, f"{id}.png"))

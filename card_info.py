@@ -6,12 +6,12 @@ import os
 from functools import reduce
 
 
-all_upper_case = ["DK", "BTS", "RM", "(G)I-DLE", "SS", "WWE", "TXT"]
+all_upper_case = ["DK", "BTS", "RM", "(G)I-DLE", "SS", "WWE", "TXT", "SSR", "UR"]
 all_lower_case = []
 
 CARD_DIRECTORY = "cards"
 gacha_groups = ["floral event"] # lowercase
-
+very_rare_thingies = ["S", "SS", "SSR", "UR"]
 class CardInfo(BaseModel):
     name: str
     group: str
@@ -59,7 +59,8 @@ def load_cards():
 def load_card_info():
     global all_cards, gacha_only_cards, card_info, group_list, group_info, non_gacha_cards_enum
     global cards, gacha_only_cards_by_group, non_gacha_cards_info, idols_enum
-    global card_era_enum, card_groups_enum, non_gacha_cards_id
+    global card_era_enum, card_groups_enum, non_gacha_cards_id, gacha_groups_special_thingy
+    global groups_str
 
     all_cards = load_cards()
     cards = {}
@@ -129,5 +130,24 @@ def load_card_info():
     )
 
     idols_enum = {card.name for card in card_info.values()}
+
+    gacha_groups_special_thingy = {name: group_info[name] for name in group_list}
+    for soloist in gacha_groups_special_thingy["Soloist"]:
+        if card_info[soloist].name in gacha_groups_special_thingy:
+            gacha_groups_special_thingy[card_info[soloist].name].append(soloist)
+        else:
+            gacha_groups_special_thingy[card_info[soloist].name] = [soloist]
+
+    del gacha_groups_special_thingy["Soloist"]
+
+    for group, info in list(gacha_groups_special_thingy.items()):
+        for i in info:
+            if card_info[i].rarity in very_rare_thingies:
+                info.remove(i)
+        if len(info) == 0:
+            del gacha_groups_special_thingy[group]
+
+    groups_str = ", ".join([f"`{key}`" for key in gacha_groups_special_thingy.keys()])
+
 
 load_card_info()

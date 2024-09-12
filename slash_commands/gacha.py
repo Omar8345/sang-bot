@@ -34,17 +34,7 @@ CHANCES = { # out of 100
     FEATURED_CARD: 5
 }
 
-groups = {name: card_info.group_info[name] for name in card_info.group_list}
-for soloist in groups["Soloist"]:
-    if card_info.card_info[soloist].name in groups:
-        groups[card_info.card_info[soloist].name].append(soloist)
-    else:
-        groups[card_info.card_info[soloist].name] = [soloist]
 
-
-del groups["Soloist"]
-
-groups_str = ", ".join([f"`{key}`" for key in groups.keys()])
 gacha_types = Literal["Standard Gacha"]
 
 @tree.command(name="gacha", description="get random rewards, including exclusive cards", guild=discord.Object(id = settings.guild_id))
@@ -54,8 +44,8 @@ async def gacha(interaction: discord.Interaction, gacha_name: gacha_types, group
         user_id
     )
     group = card_info._capitalize_names(group)
-    if group not in groups:
-        await interaction.response.send_message(f"Group must be one of these: {groups_str}")
+    if group not in card_info.gacha_groups_special_thingy:
+        await interaction.response.send_message(f"Group must be one of these: {card_info.groups_str}")
         return
 
     if user.buds < amount:
@@ -87,7 +77,7 @@ async def gacha(interaction: discord.Interaction, gacha_name: gacha_types, group
         else:
             drop_type = probability_stuff.get_random_from(CHANCES)
 
-        cards_from_group = groups[group]
+        cards_from_group = card_info.gacha_groups_special_thingy[group]
         if drop_type == HEHET:
             reward_ = random.randint(5_000, 10_000)
             rewards.append([group_cards.HEHET_ID, reward_])

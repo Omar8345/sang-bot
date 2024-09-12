@@ -26,9 +26,13 @@ def find_rarity(rarity: str, cards: list[str]):
         if rarity == card_info.card_info[card.upper()].rarity:
             return card.upper()
 
-
-def get_random_card(chances: dict[str, float], cards: list[str]) -> str:
+very_rare_thingies = ["S", "SS", "UR", "SSR"]
+def get_random_card(chances: dict[str, float], cards: list[str], with_very_rare_thingies: bool = False) -> str:
     rarities = {card_info.card_info[card.upper()].rarity for card in cards}
+    for i in very_rare_thingies:
+        if i in rarities:
+            rarities.remove(i)
+
     chances = {rarity: chance for rarity, chance in chances.items() if rarity in rarities}
     limit = sum(chances.values())
 

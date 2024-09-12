@@ -13,7 +13,6 @@ from typing import Any
 from c_cooldown import DROP_COOLDOWN_SECONDS
 
 
-
 @tree.command(name="drop", description="get a random card", guild=discord.Object(id = settings.guild_id))
 async def drop(interaction: discord.Interaction):
     user_id = interaction.user.id
