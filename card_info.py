@@ -56,71 +56,78 @@ def load_cards():
     return __cards
 
 
-all_cards = load_cards()
-cards = {}
-gacha_only_cards_by_group = {}
-for group in os.listdir(CARD_DIRECTORY):
-    group_path = os.path.join(CARD_DIRECTORY, group)
+def load_card_info():
+    global all_cards, gacha_only_cards, card_info, group_list, group_info, non_gacha_cards_enum
+    global cards, gacha_only_cards_by_group, non_gacha_cards_info, idols_enum
+    global card_era_enum, card_groups_enum, non_gacha_cards_id
 
-    if not os.path.isdir(group_path): continue
-    for era in os.listdir(group_path):
-        era_path = os.path.join(group_path, era)
-        if not os.path.isdir(era_path): continue
+    all_cards = load_cards()
+    cards = {}
+    gacha_only_cards_by_group = {}
+    for group in os.listdir(CARD_DIRECTORY):
+        group_path = os.path.join(CARD_DIRECTORY, group)
 
-        era_info_path = os.path.join(era_path, "_cards_info.json")
-        with open(era_info_path) as f:
-            era_info = json.load(f)
+        if not os.path.isdir(group_path): continue
+        for era in os.listdir(group_path):
+            era_path = os.path.join(group_path, era)
+            if not os.path.isdir(era_path): continue
 
-        era_info_backup = os.path.join(era_path, "_cards_info_backup.json")
-        with open(era_info_backup, "w") as f:
-            json.dump(era_info, f)
+            era_info_path = os.path.join(era_path, "_cards_info.json")
+            with open(era_info_path) as f:
+                era_info = json.load(f)
 
-        for card in os.listdir(era_path):
-            if not card.endswith(".png"):
-                continue
+            era_info_backup = os.path.join(era_path, "_cards_info_backup.json")
+            with open(era_info_backup, "w") as f:
+                json.dump(era_info, f)
 
-            card_id = card.split('.')[0].upper()
+            for card in os.listdir(era_path):
+                if not card.endswith(".png"):
+                    continue
 
-            cards[card_id] = {
-                **era_info[card_id],
-                "group": group,
-                "era": era
-            }
+                card_id = card.split('.')[0].upper()
 
-            if group.lower() in gacha_groups:
-                if era not in gacha_only_cards_by_group:
-                    gacha_only_cards_by_group[era] = [card_id]
-                else:
-                    gacha_only_cards_by_group[era].append(card_id)
+                cards[card_id] = {
+                    **era_info[card_id],
+                    "group": group,
+                    "era": era
+                }
 
-gacha_only_cards = reduce((lambda a, b: a + b), gacha_only_cards_by_group.values(), [])
+                if group.lower() in gacha_groups:
+                    if era not in gacha_only_cards_by_group:
+                        gacha_only_cards_by_group[era] = [card_id]
+                    else:
+                        gacha_only_cards_by_group[era].append(card_id)
 
-cards = {_id.upper(): {field: _capitalize_names(value) for field, value in data.items()} for _id, data in cards.items()}
+    gacha_only_cards = reduce((lambda a, b: a + b), gacha_only_cards_by_group.values(), [])
 
-card_info: dict[str, CardInfo] = {card_id: CardInfo(**info) for card_id, info in cards.items()}
-non_gacha_cards_info: dict[str, CardInfo] = {card_id: CardInfo(**info) for card_id, info in cards.items() if card_id.upper() not in gacha_only_cards}
+    cards = {_id.upper(): {field: _capitalize_names(value) for field, value in data.items()} for _id, data in cards.items()}
 
-group_list = list({card.group for card in non_gacha_cards_info.values()})
-group_info = {group: [] for group in group_list}
+    card_info = {card_id: CardInfo(**info) for card_id, info in cards.items()}
+    non_gacha_cards_info = {card_id: CardInfo(**info) for card_id, info in cards.items() if card_id.upper() not in gacha_only_cards}
 
-non_gacha_cards_id = [i for i in non_gacha_cards_info.keys()]
+    group_list = list({card.group for card in non_gacha_cards_info.values()})
+    group_info = {group: [] for group in group_list}
 
-for card_id, card in non_gacha_cards_info.items():
-    group_info[card.group].append(card_id)
+    non_gacha_cards_id = [i for i in non_gacha_cards_info.keys()]
 
-card_groups_enum = enum.Enum(
-    "CardGroups",
-    {group: i for i, group in enumerate(list({card.group for card in card_info.values()}))}
-)
+    for card_id, card in non_gacha_cards_info.items():
+        group_info[card.group].append(card_id)
 
-card_era_enum = enum.Enum(
-    "CardGroups",
-    {era: i for i, era in enumerate(list({card.era for card in card_info.values()}))}
-)
+    card_groups_enum = enum.Enum(
+        "CardGroups",
+        {group: i for i, group in enumerate(list({card.group for card in card_info.values()}))}
+    )
 
-non_gacha_cards_enum = enum.Enum(
-    "CardGroups",
-    {group: i for i, group in enumerate(list({card.group for card in card_info.values()}))}
-)
+    card_era_enum = enum.Enum(
+        "CardGroups",
+        {era: i for i, era in enumerate(list({card.era for card in card_info.values()}))}
+    )
 
-idols_enum = {card.name for card in card_info.values()}
+    non_gacha_cards_enum = enum.Enum(
+        "CardGroups",
+        {group: i for i, group in enumerate(list({card.group for card in card_info.values()}))}
+    )
+
+    idols_enum = {card.name for card in card_info.values()}
+
+load_card_info()

@@ -7,12 +7,17 @@ from settings import settings
 import db
 from discord.ext import tasks
 import reminder_handler
+import card_info
 
 
 @tasks.loop(hours = 1, reconnect=True)
 async def update_leaderboard():
     await leaderboard.calculate_leaderboards()
 
+
+@tasks.loop(seconds = 2)
+async def update_cards():
+    card_info.load_card_info()
 
 count = 0
 async def handle() -> None:
@@ -31,7 +36,10 @@ async def handle() -> None:
         update_leaderboard.start()
 
         reminder_handler.reminder_loop.start()
+        update_cards.start()
 
         await bot.tree.sync(guild=discord.Object(id=settings.guild_id))
 
     count += 1
+
+    card_info.load_card_info()
