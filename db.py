@@ -19,9 +19,7 @@ import reminder_handler
 MAX_GACHA_HISTORY_SECONDS = 6 * 24 * 3600
 
 
-all_existing_cards = card_info.load_cards()
 db = prisma.Prisma()
-
 
 
 async def connect():
@@ -90,7 +88,7 @@ async def get_user(user_id: int, createNewUser_ifNotFound: bool = True, include:
 
     if "cards" in include and include["cards"] == True and user is not None:
         for card in user.cards:
-            if card.card_id not in all_existing_cards:
+            if card.card_id not in card_info.all_cards:
                 await delete_card(user_id, card.card_id)
 
         user: c_user.User = await db.user.find_first(
