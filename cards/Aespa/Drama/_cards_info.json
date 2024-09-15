@@ -1,0 +1,34 @@
+{
+  "EDRGSL": {
+    "name": "Giselle",
+    "rarity": "E"
+  },
+  "DDRGSL": {
+    "name": "Giselle",
+    "rarity": "D"
+  },
+  "CDRGSL": {
+    "name": "Giselle",
+    "rarity": "C"
+  },
+  "BDRGSL": {
+    "name": "Giselle",
+    "rarity": "B"
+  },
+  "ADRGSL": {
+    "name": "Giselle",
+    "rarity": "A"
+  },
+  "EDRKRN": {
+    "name": "Karina",
+    "rarity": "E"
+  },
+  "DDRKRN": {
+    "name": "Karina",
+    "rarity": "D"
+  },
+  "CDRKRN": {
+    "name": "Karina",
+    "rarity": "C"
+  }
+}
