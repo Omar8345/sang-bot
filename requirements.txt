@@ -1,6 +1,6 @@
 discord
 python-dotenv
 pydantic
-prisma
+prisma==0.14.0
 pillow
 prisma-client
