@@ -6,7 +6,7 @@
   // invisible = offline
   "status": "online",
   "prefix": "!",
-  "guild_id": 1272624224451956856,
+  "guild_id": 1291758228434194536,
   "embed_color": [0, 0, 255], // can be RGB or HEX, use [] instead of (), put HEX between "", no # required
   "hehet_emoji": "<:hehet:1272922846682812509>",
   "bud_emoji": "<:bud:1274117689555816640>",
